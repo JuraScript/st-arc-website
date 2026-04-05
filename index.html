@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ST Arc — Custom Light Installations</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ── CUSTOM CURSOR ──────────────────────────────────── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+
+  <!-- ── NAVIGATION ─────────────────────────────────────── -->
+  <nav>
+    <a href="#" class="nav-logo">ST <span>ARC</span></a>
+
+    <ul class="nav-links">
+      <li><a href="#projects" data-i18n="nav_projects">Projekti</a></li>
+      <li><a href="#about" data-i18n="nav_about">O nama</a></li>
+      <li><a href="#services" data-i18n="nav_services">Usluge</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
+    </ul>
+
+    <!-- Utility container for right alignment -->
+    <div style="display: flex; align-items: center;">
+
+      <div class="lang-selector dropdown" id="langSelector">
+        <div class="lang-active" id="langActive">HR</div>
+        <ul class="lang-dropdown" id="langDropdown">
+          <li data-lang="hr">HR</li>
+          <li data-lang="en">EN</li>
+          <li data-lang="de">DE</li>
+          <li data-lang="it">IT</li>
+          <li data-lang="es">ES</li>
+          <li data-lang="fr">FR</li>
+          <li data-lang="nl">NL</li>
+          <li data-lang="pt">PT</li>
+          <li data-lang="ru">RU</li>
+          <li data-lang="zh">ZH</li>
+          <li data-lang="ar">AR</li>
+        </ul>
+      </div>
+
+      <a href="#contact" class="nav-cta" data-i18n="nav_cta">Zatražite ponudu</a>
+
+      <div class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ── HERO ───────────────────────────────────────────── -->
+  <!--
+    Background image: images/hero-fontana.jpg
+    Gradient fade-to-dark applied via .hero-bg::after in CSS
+  -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow" data-i18n="hero_eyebrow">Custom inox instalacije</div>
+
+      <h1 class="hero-title" data-i18n="hero_title">
+        Svjetlost koja<br>
+        <em>transformira</em><br>
+        prostore
+      </h1>
+
+      <p class="hero-sub" data-i18n="hero_sub">
+        Dizajn, produkcija i montaža velikih inox svjetlosnih konstrukcija
+        za gradove, događaje i komercijalne prostore — već 30 godina.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn-primary" data-i18n="hero_btn_projects"><span>Pogledaj projekte</span></a>
+        <a href="#contact" class="btn-outline" data-i18n="hero_btn_contact">Zatražite ponudu</a>
+      </div>
+    </div>
+
+    <!-- Stats — bottom right, above scroll indicator -->
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number" data-i18n="hero_stat1_num">30+</span>
+        <span class="stat-label" data-i18n="hero_stat1">Godina iskustva</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-i18n="hero_stat2_a">HR</span>
+        <span class="stat-label" data-i18n="hero_stat2_b">i Europa</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-i18n="hero_stat3_a">EU</span>
+        <span class="stat-label" data-i18n="hero_stat3_b">Standardi</span>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ── TRUST BAR ──────────────────────────────────────── -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span class="trust-item" data-i18n="mq1">Gradovi i općine</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq2">Trgovački centri</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq3">Poslovni i privatni objekti</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq4">Uskrsne dekoracije</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq5">Vjenčanja i zabave</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq6">Premium proizvodi</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq7">3D motivi</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq8">Tematske dekoracije</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq9">Valentinovo</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq10">Posebni događaji</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq11">Komercijalni prostori</span>
+          <span class="trust-dot"></span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span class="trust-item" data-i18n="mq1">Gradovi i općine</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq2">Trgovački centri</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq3">Poslovni i privatni objekti</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq4">Uskrsne dekoracije</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq5">Vjenčanja i zabave</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq6">Premium proizvodi</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq7">3D motivi</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq8">Tematske dekoracije</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq9">Valentinovo</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq10">Posebni događaji</span>
+          <span class="trust-dot"></span>
+          <span class="trust-item" data-i18n="mq11">Komercijalni prostori</span>
+          <span class="trust-dot"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── SELECTED PROJECTS ──────────────────────────────── -->
+  <section class="projects-section" id="projects">
+
+    <div class="projects-header reveal">
+      <div class="projects-header-left">
+        <div class="section-label" data-i18n="label_portfolio">Portfolio</div>
+        <h2 class="section-title" data-i18n="title_projects">Odabrani <em>projekti</em></h2>
+        <p data-i18n="desc_projects">
+          Svaki projekt je jedinstveno rješenje, kreirano da ostavi trajan
+          dojam i postane ikonični dio prostora koji krasi.
+        </p>
+      </div>
+      <a href="#" class="view-all-link" data-i18n="link_all_projects">Svi projekti</a>
+    </div>
+
+    <div class="projects-grid reveal">
+
+      <!-- 01 -->
+      <div class="project-card">
+        <img class="project-img" src="images/projekt-01-hnk.jpg"
+          alt="Zagreb — Hrvatsko narodno kazalište s inox stablom" loading="lazy">
+        <div class="project-overlay">
+          <span class="project-number">01</span>
+          <div class="project-name" data-i18n="p1_name">Zagreb — HNK</div>
+          <p class="project-desc" data-i18n="p1_desc">Inox stablo ispred Hrvatskog narodnog kazališta, ikonični simbol
+            zagrebačkog adventa.</p>
+        </div>
+        <span class="project-tag" data-i18n="p1_tag">Zagreb</span>
+      </div>
+
+      <!-- 02 -->
+      <div class="project-card">
+        <img class="project-img" src="images/projekt-02-markov-trg.jpg"
+          alt="Markov trg — inox instalacije uz crkvu sv. Marka" loading="lazy">
+        <div class="project-overlay">
+          <span class="project-number">02</span>
+          <div class="project-name" data-i18n="p2_name">Markov trg</div>
+          <p class="project-desc" data-i18n="p2_desc">Inox instalacije u srcu Gornjeg grada uz crkvu sv. Marka.</p>
+        </div>
+        <span class="project-tag" data-i18n="p2_tag">Zagreb</span>
+      </div>
+
+      <!-- 03 -->
+      <div class="project-card">
+        <img class="project-img" src="images/projekt-03-adventska-ulica.jpg"
+          alt="Adventska ulica — svjetlosni lukovi niz ulicu" loading="lazy">
+        <div class="project-overlay">
+          <span class="project-number">03</span>
+          <div class="project-name" data-i18n="p3_name">Adventska ulica</div>
+          <p class="project-desc" data-i18n="p3_desc">Dekorativne instalacije koje pretvaraju ulicu u svjetlosni tunel.
+          </p>
+        </div>
+        <span class="project-tag" data-i18n="p3_tag">Zagreb</span>
+      </div>
+
+      <!-- 04 -->
+      <div class="project-card">
+        <img class="project-img" src="images/projekt-04-trg-jelacic.jpg"
+          alt="Trg bana Jelačića — adventska dekoracija iz ptičje perspektive" loading="lazy">
+        <div class="project-overlay">
+          <span class="project-number">04</span>
+          <div class="project-name" data-i18n="p4_name">Trg bana Jelačića</div>
+          <p class="project-desc" data-i18n="p4_desc">Spektakularna adventska dekoracija glavnog zagrebačkog trga iz
+            ptičje perspektive.</p>
+        </div>
+        <span class="project-tag" data-i18n="p4_tag">Zagreb</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── ABOUT ──────────────────────────────────────────── -->
+  <section class="about-section" id="about">
+
+    <div class="about-visual reveal">
+      <div class="about-gold-line"></div>
+      <img class="about-img-main" src="images/about-split-marmontova.jpg"
+        alt="Split — Marmontova ulica s adventskim dekoracijama" loading="lazy">
+      <img class="about-img-accent" src="images/about-dubrovnik.jpg" alt="Dubrovnik — svjetlosne dekoracije"
+        loading="lazy">
+    </div>
+
+    <div class="about-content reveal reveal-delay-2">
+      <div class="section-label" data-i18n="label_about">O nama</div>
+      <h2 class="section-title" data-i18n="title_about">
+        Izrađeno da traje.<br>
+        <em>Dizajnirano da se ističe.</em>
+      </h2>
+
+      <blockquote class="about-text" data-i18n="quote_about">
+        "Vjerujemo da svjetlost ima moć mijenjati iskustvo prostora
+        i stvarati nezaboravne trenutke."
+      </blockquote>
+
+      <p class="about-body" data-i18n="body_about">
+        ST Arc već 30 godina doprinosi stvaranju svjetlosne čarolije diljem
+        Hrvatske i Europe. Sve svjetlosne elemente dizajniramo sami,
+        oblikujući im inox konstrukciju na koju dodajemo najkvalitetnije
+        rasvjetne i ukrasne dodatke. Naše radionice u Splitu i Solinu jedina
+        su granica — vaša ideja, naša izvedba.
+      </p>
+
+      <div class="values-grid">
+        <div class="value-item">
+          <span class="value-icon">⚙️</span>
+          <div class="value-name" data-i18n="val1_name">Preciznost</div>
+          <p class="value-desc" data-i18n="val1_desc">Svaki detalj konstruiran s inženjerskom preciznošću.</p>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">✦</span>
+          <div class="value-name" data-i18n="val2_name">Custom dizajn</div>
+          <p class="value-desc" data-i18n="val2_desc">Svaki projekt jedinstven, prilagođen prostoru i viziji.</p>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">🏗️</span>
+          <div class="value-name" data-i18n="val3_name">Trajnost</div>
+          <p class="value-desc" data-i18n="val3_desc">Visokokvalitetni inox materijali otporni na sve uvjete.</p>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">💡</span>
+          <div class="value-name" data-i18n="val4_name">Inovacija</div>
+          <p class="value-desc" data-i18n="val4_desc">Kombiniramo tradiciju obrta s modernom LED tehnologijom.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ── SERVICES ───────────────────────────────────────── -->
+  <section class="services-section" id="services">
+
+    <div class="services-intro">
+      <div class="reveal">
+        <div class="section-label" data-i18n="label_services">Usluge</div>
+        <h2 class="section-title" data-i18n="title_services">
+          Što radimo<br>
+          <em>za vas</em>
+        </h2>
+      </div>
+      <p class="reveal reveal-delay-2" data-i18n="desc_services">
+        Od ideje do realizacije — pratimo vas kroz cijeli proces. Naš tim
+        arhitekata, inženjera i majstora brine o svakom koraku vašeg projekta,
+        od prve skice do finalne montaže na terenu.
+      </p>
+    </div>
+
+    <div class="services-list">
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <div class="service-name" data-i18n="srv1_name">Dizajn &amp; Projektiranje</div>
+        <p class="service-desc" data-i18n="srv1_desc">Kreativna vizualizacija i tehnička dokumentacija prilagođena vašim
+          zahtjevima i prostoru. Nudimo i vizualnu simulaciju dekoracije objekta.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <span class="service-num">02</span>
+        <div class="service-name" data-i18n="srv2_name">Produkcija</div>
+        <p class="service-desc" data-i18n="srv2_desc">Vlastita radionica u Splitu i Solinu s CNC tehnologijom za
+          preciznu izradu inox konstrukcija po mjeri. Bez ograničenja u dizajnu.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <span class="service-num">03</span>
+        <div class="service-name" data-i18n="srv3_name">Instalacija &amp; Najam</div>
+        <p class="service-desc" data-i18n="srv3_desc">Profesionalna montaža na terenu uz puni nadzor. Nudimo i godišnji
+          najam ukrasnih motiva — svake godine nove dekoracije.</p>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ── CALL TO ACTION ─────────────────────────────────── -->
+  <section class="cta-section" id="contact">
+    <div class="cta-bg"></div>
+
+    <div class="cta-content">
+      <div class="section-label" style="justify-content: center;" data-i18n="label_contact">Kontakt</div>
+      <h2 class="cta-title" data-i18n="title_contact">
+        Imate projekt<br>
+        <em>na umu?</em>
+      </h2>
+      <p class="cta-sub" data-i18n="sub_contact">Stvorimo nešto što će ljudi pamtiti.</p>
+
+      <div class="cta-buttons">
+        <a href="mailto:info@st-arc.hr" class="btn-primary" data-i18n="btn_contact_primary"><span>Zatražite
+            ponudu</span></a>
+        <a href="tel:+38521339861" class="btn-outline" data-i18n="btn_contact_secondary">Nazovite nas</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-main">
+
+      <div>
+        <div class="footer-logo">ST <span>ARC</span></div>
+        <p class="footer-tagline" data-i18n="ft_tagline">
+          30 godina stvaramo svjetlosnu čaroliju diljem Hrvatske i Europe.
+          Inox konstrukcije izrađujemo u našim radionicama u Splitu i Solinu.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" title="Instagram"><svg width="14" height="14" fill="none" stroke="currentColor"
+              stroke-width="1.5" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg></a>
+          <a href="#" class="social-btn" title="Facebook"><svg width="14" height="14" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg></a>
+          <a href="#" class="social-btn" title="YouTube"><svg width="14" height="14" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM10 15V9l5.5 3-5.5 3z" />
+            </svg></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title" data-i18n="ft_nav">Navigacija</div>
+        <ul class="footer-links">
+          <li><a href="#projects" data-i18n="nav_projects">Projekti</a></li>
+          <li><a href="#about" data-i18n="nav_about">O nama</a></li>
+          <li><a href="#services" data-i18n="nav_services">Usluge</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title" data-i18n="ft_srv">Usluge</div>
+        <ul class="footer-links">
+          <li><a href="#" data-i18n="ft_srv1">Advent instalacije</a></li>
+          <li><a href="#" data-i18n="ft_srv2">Eventske instalacije</a></li>
+          <li><a href="#" data-i18n="ft_srv3">Gradski prostori</a></li>
+          <li><a href="#" data-i18n="ft_srv4">Najam dekoracija</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <div class="footer-col-title" data-i18n="label_contact">Kontakt</div>
+        <p>
+          <a href="mailto:info@st-arc.hr">info@st-arc.hr</a><br>
+          <a href="tel:+38521339861">+385 21 339 861</a><br>
+          <a href="tel:+38598265642">+385 98 265 642</a><br>
+          <br>
+          Dubrovačka 49<br>
+          21000 Split, Hrvatska
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p data-i18n="ft_copy">© 2025 ST Arc d.o.o. Sva prava pridržana.</p>
+      <div class="footer-bottom-links">
+        <a href="#" data-i18n="ft_terms">Uvjeti korištenja</a>
+        <a href="#" data-i18n="ft_privacy">Privatnost</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── SCRIPTS ─────────────────────────────────────────── -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'hr', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script src="js/lang.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
