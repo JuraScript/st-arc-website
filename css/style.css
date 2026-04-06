@@ -27,6 +27,33 @@
   padding: 0;
 }
 
+/* ── CUSTOM SCROLLBAR (global) ───────────────────────────── */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 151, 58, 0.35) transparent;
+}
+
+/* WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 151, 58, 0.3);
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 151, 58, 0.55);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -1475,13 +1502,13 @@ footer {
   opacity: 1; pointer-events: all;
 }
 .pdf-modal-box {
-  width: min(820px, 94vw);
-  height: 90vh;
+  width: min(var(--pdf-modal-w, 820px), 94vw);
+  height: min(var(--pdf-modal-h, 90vh), 94vh);
   background: var(--dark-3);
   border: 1px solid rgba(201, 151, 58, 0.18);
   display: flex; flex-direction: column;
   transform: translateY(20px);
-  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, width 0.35s ease, height 0.35s ease;
 }
 .pdf-modal-bg.open .pdf-modal-box {
   transform: none;

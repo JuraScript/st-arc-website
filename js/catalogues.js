@@ -201,12 +201,43 @@ async function renderPage(pageNum) {
 
   const page = await pdfDoc.getPage(pageNum);
   const canvas = document.getElementById('pdfCanvas');
-  const container = document.querySelector('.pdf-modal-content');
-
-  // Scale to fit container width
-  const containerWidth = container.clientWidth - 48; // subtract padding
+  const modalBox = document.querySelector('.pdf-modal-box');
   const viewport = page.getViewport({ scale: 1 });
-  const scale = containerWidth / viewport.width;
+
+  // Determine if landscape or portrait
+  const isLandscape = viewport.width > viewport.height;
+  const pageRatio = viewport.width / viewport.height;
+
+  // Calculate optimal modal dimensions based on page orientation
+  const maxW = window.innerWidth * 0.94;
+  const maxH = window.innerHeight * 0.94;
+  const headerH = 65; // modal header height
+  const pad = 48;      // content padding
+
+  let modalW, contentH;
+
+  if (isLandscape) {
+    // Landscape: go wider, limit to viewport
+    modalW = Math.min(1200, maxW);
+    contentH = (modalW - pad) / pageRatio;
+    // If too tall, constrain by height instead
+    if (contentH + headerH + pad > maxH) {
+      contentH = maxH - headerH - pad;
+      modalW = Math.min(contentH * pageRatio + pad, maxW);
+    }
+  } else {
+    // Portrait: narrower, taller
+    contentH = maxH - headerH - pad;
+    modalW = Math.min(contentH * pageRatio + pad, 820, maxW);
+  }
+
+  // Apply via CSS custom properties (triggers smooth transition)
+  modalBox.style.setProperty('--pdf-modal-w', Math.round(modalW) + 'px');
+  modalBox.style.setProperty('--pdf-modal-h', Math.round(contentH + headerH + pad) + 'px');
+
+  // Render: scale canvas to fill available content width
+  const renderWidth = modalW - pad;
+  const scale = renderWidth / viewport.width;
   const scaledViewport = page.getViewport({ scale });
 
   canvas.width = scaledViewport.width;
