@@ -9,57 +9,57 @@ const CATALOGUES = [
     id: 'kat-01',
     file: 'katalozi/KATALOG-ST-ARC.pdf',
     titleKey: 'cat1_title',
-    descKey:  'cat1_desc',
-    year:     'glavni'
+    descKey: 'cat1_desc',
+    year: 'glavni'
   },
   {
     id: 'kat-02',
     file: 'katalozi/ST-ARC_SvjetlosneDekoracije.pdf',
     titleKey: 'cat2_title',
-    descKey:  'cat2_desc',
-    year:     'dekoracije'
+    descKey: 'cat2_desc',
+    year: 'dekoracije'
   },
   {
     id: 'kat-03',
     file: 'katalozi/2019-2020.pdf',
     titleKey: 'cat3_title',
-    descKey:  'cat3_desc',
-    year:     '2019–20'
+    descKey: 'cat3_desc',
+    year: '2019–20'
   },
   {
     id: 'kat-04',
     file: 'katalozi/2018.pdf',
     titleKey: 'cat4_title',
-    descKey:  'cat4_desc',
-    year:     '2018–19'
+    descKey: 'cat4_desc',
+    year: '2018–19'
   },
   {
     id: 'kat-05',
     file: 'katalozi/2017.pdf',
     titleKey: 'cat5_title',
-    descKey:  'cat5_desc',
-    year:     '2017'
+    descKey: 'cat5_desc',
+    year: '2017'
   },
   {
     id: 'kat-06',
     file: 'katalozi/katalog-maskare.pdf',
     titleKey: 'cat6_title',
-    descKey:  'cat6_desc',
-    year:     'posebno'
+    descKey: 'cat6_desc',
+    year: 'posebno'
   },
   {
     id: 'kat-07',
     file: 'katalozi/posebno-izdanje-2015.pdf',
     titleKey: 'cat7_title',
-    descKey:  'cat7_desc',
-    year:     '2015'
+    descKey: 'cat7_desc',
+    year: '2015'
   },
   {
     id: 'kat-08',
     file: 'katalozi/uskrs-katalog-2026-1.pdf',
     titleKey: 'cat8_title',
-    descKey:  'cat8_desc',
-    year:     '2026'
+    descKey: 'cat8_desc',
+    year: '2026'
   }
 ];
 
@@ -76,7 +76,7 @@ let totalPages = 0;
 function _t(key) {
   const lang = localStorage.getItem('starc_lang') || 'hr';
   const dict = translations[lang] || translations['en'] || {};
-  const en   = translations['en'] || {};
+  const en = translations['en'] || {};
   return dict[key] || en[key] || key;
 }
 
