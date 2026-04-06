@@ -231,5 +231,62 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 400);
     }, 3000);
   };
+  /* ── HASH ROUTER ──────────────────────────────────────────── */
+  function showMain() {
+    document.getElementById('main-content').style.display = '';
+    document.getElementById('catalogues-page').style.display = 'none';
+    window.scrollTo(0, 0);
+  }
+
+  function showCatalogues() {
+    document.getElementById('main-content').style.display = 'none';
+    document.getElementById('catalogues-page').style.display = '';
+    window.scrollTo(0, 0);
+
+    // Render grid + lazy thumbnails
+    renderCatalogGrid();
+    initThumbObserver();
+
+    // Re-init scroll reveal for catalogue cards
+    document.querySelectorAll('#catalogues-page .reveal').forEach(el => {
+      el.classList.remove('visible');
+      revealObserver.observe(el);
+    });
+
+    // Re-apply current language to new dynamic elements
+    const lang = localStorage.getItem('starc_lang') || 'hr';
+    const dict = translations[lang] || translations['en'] || {};
+    const en   = translations['en'] || {};
+    document.querySelectorAll('#catalogues-page [data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = dict[key] || en[key];
+      if (val) el.innerHTML = val;
+    });
+  }
+
+  function handleRoute() {
+    const hash = location.hash;
+    if (hash === '#/katalozi') {
+      showCatalogues();
+    } else {
+      // Only scroll to top if returning FROM catalogues page
+      const catPage = document.getElementById('catalogues-page');
+      const wasOnCatalogues = catPage.style.display !== 'none';
+      
+      document.getElementById('main-content').style.display = '';
+      catPage.style.display = 'none';
+      
+      if (wasOnCatalogues) {
+        window.scrollTo(0, 0);
+      }
+    }
+  }
+
+  window.addEventListener('hashchange', handleRoute);
+
+  // Handle initial load (e.g. direct link to #/katalozi)
+  if (location.hash === '#/katalozi') {
+    handleRoute();
+  }
 
 });

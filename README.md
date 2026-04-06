@@ -10,7 +10,9 @@ st-arc/
 ├── css/
 │   └── style.css       ← Svi stilovi (design tokens, layout, animacije)
 ├── js/
-│   └── main.js         ← Cursor, scroll-reveal, sticky nav
+│   ├── main.js         ← Cursor, scroll-reveal, sticky nav, hash router
+│   ├── lang.js         ← i18n prijevodi (HR, EN, DE, IT, ES, FR, NL, PT, RU, ZH, AR)
+│   └── catalogues.js   ← PDF katalog modul (thumbnails + reader modal)
 ├── images/
 │   ├── hero-fontana.jpg              ← Hero pozadina (fontana, dvorac)
 │   ├── projekt-01-hnk.jpg            ← Projekt: Zagreb HNK
@@ -21,6 +23,11 @@ st-arc/
 │   ├── about-dubrovnik.jpg           ← About: Dubrovnik (accent slika)
 │   ├── cta-stabla.jpg                ← CTA pozadina (inox stabla)
 │   └── zagreb-ulica-aerial.jpg       ← Rezervna slika (nije korištena)
+├── katalozi/                         ← PDF katalozi
+│   ├── 2018.pdf
+│   ├── 2019-2020.pdf
+│   ├── katalog-maskare.pdf
+│   └── posebno-izdanje-2015.pdf
 └── README.md
 ```
 
@@ -48,6 +55,31 @@ Učitavaju se s Google Fonts u `<head>` od `index.html`:
 - **Custom cursor** — zlatna točka s lagiranim prstenom (smooth pratnja)
 - **Scroll reveal** — `.reveal` elementi se fade-in kada uđu u viewport
 - **Sticky nav** — navigacija postaje frosted glass pri scrollu > 80px
+- **Contact modal** — forma za upit s mailto fallbackom
+- **Scroll progress** — zlatna linija na vrhu stranice
+- **Stat counter** — animirano odbrojavanje brojki u hero sekciji
+- **Ken Burns** — suptilni zoom/pan efekt na hero pozadini
+- **Hash router** — `#/katalozi` ruta za prikaz katalog stranice
+- **PDF viewer** — PDF.js thumbnail rendering + fullscreen reader modal
+
+## Kako dodati novi katalog
+
+1. Stavi PDF datoteku u `katalozi/` folder
+2. U `js/catalogues.js` dodaj objekt u `CATALOGUES` array:
+   ```javascript
+   {
+     id:       'kat-05',
+     file:     'katalozi/novi-katalog.pdf',
+     titleKey: 'cat5_title',
+     descKey:  'cat5_desc',
+     year:     '2024'
+   }
+   ```
+3. U `js/lang.js` dodaj prijevode `cat5_title` i `cat5_desc` za sve jezike
+4. Commit & push — gotovo.
+
+> **Napomena:** Cover slike se ne koriste. Thumbnail se automatski generira
+> iz prve stranice PDF-a pri svakom posjetu (PDF.js rendering).
 
 ## Kontakt (stvarni podaci)
 

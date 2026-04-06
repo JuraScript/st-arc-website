@@ -1340,3 +1340,214 @@ footer {
   transition: width 0.1s linear;
   pointer-events: none;
 }
+
+/* ── CATALOGUES PAGE ─────────────────────────────────────────── */
+.cat-section {
+  min-height: 100vh;
+  padding: 140px var(--section-padding-x) 80px;
+}
+.cat-header {
+  margin-bottom: 60px;
+}
+.cat-back {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: color 0.2s;
+}
+.cat-back:hover {
+  color: var(--gold-light);
+}
+.cat-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin-top: 12px;
+  letter-spacing: 0.4px;
+}
+
+/* Catalogue Grid */
+.catalogues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+.cat-card {
+  background: var(--dark-3);
+  border: 1px solid rgba(201, 151, 58, 0.08);
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+}
+.cat-card:hover {
+  border-color: rgba(201, 151, 58, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Thumbnail */
+.cat-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--dark-4);
+}
+.cat-thumb canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cat-thumb-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark-4);
+}
+.cat-thumb-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: rgba(201, 151, 58, 0.2);
+}
+
+/* Loading pulse */
+@keyframes pdfPulse {
+  0%, 100% { opacity: 0.3; }
+  50%      { opacity: 0.7; }
+}
+.cat-thumb-loading {
+  animation: pdfPulse 1.8s ease-in-out infinite;
+}
+.cat-thumb-loading .cat-thumb-fallback {
+  display: none;
+}
+
+/* Card info */
+.cat-info {
+  padding: 24px;
+}
+.cat-year {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: block;
+}
+.cat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.cat-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ── PDF READER MODAL ────────────────────────────────────────── */
+.pdf-modal-bg {
+  position: fixed; inset: 0;
+  background: rgba(8, 9, 16, 0.96);
+  backdrop-filter: blur(8px);
+  z-index: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.pdf-modal-bg.open {
+  opacity: 1; pointer-events: all;
+}
+.pdf-modal-box {
+  width: min(820px, 94vw);
+  height: 90vh;
+  background: var(--dark-3);
+  border: 1px solid rgba(201, 151, 58, 0.18);
+  display: flex; flex-direction: column;
+  transform: translateY(20px);
+  transition: transform 0.35s ease;
+}
+.pdf-modal-bg.open .pdf-modal-box {
+  transform: none;
+}
+.pdf-modal-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(201, 151, 58, 0.1);
+  flex-shrink: 0;
+}
+.pdf-modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 300;
+  color: var(--white);
+}
+.pdf-modal-controls {
+  display: flex; align-items: center; gap: 14px;
+}
+.pdf-modal-controls button {
+  background: none; border: 1px solid rgba(201, 151, 58, 0.3);
+  color: var(--text-muted); cursor: pointer;
+  width: 32px; height: 32px;
+  font-size: 16px; line-height: 1;
+  transition: border-color 0.2s, color 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.pdf-modal-controls button:hover {
+  border-color: var(--gold); color: var(--gold);
+}
+#pdfPageInfo {
+  font-size: 11px; letter-spacing: 1px;
+  color: var(--text-muted); min-width: 50px; text-align: center;
+}
+#pdfDownload {
+  color: var(--text-muted);
+  transition: color 0.2s; line-height: 0;
+}
+#pdfDownload:hover { color: var(--gold); }
+#pdfModalClose {
+  font-size: 20px !important;
+  border: none !important;
+  color: var(--text-muted) !important;
+}
+.pdf-modal-content {
+  flex: 1; overflow-y: auto;
+  display: flex; justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+  background: var(--dark-2);
+}
+#pdfCanvas {
+  max-width: 100%;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Catalogue responsive */
+@media (max-width: 768px) {
+  .cat-section { padding: 120px 25px 60px; }
+  .catalogues-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cat-info { padding: 16px; }
+  .cat-title { font-size: 18px; }
+  .cat-desc { font-size: 12px; }
+  .pdf-modal-header { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+  .pdf-modal-content { padding: 12px; }
+}
+@media (max-width: 480px) {
+  .catalogues-grid { grid-template-columns: 1fr; }
+}

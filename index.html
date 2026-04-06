@@ -13,6 +13,9 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -35,6 +38,7 @@
       <li><a href="#projects" data-i18n="nav_projects">Projekti</a></li>
       <li><a href="#about" data-i18n="nav_about">O nama</a></li>
       <li><a href="#services" data-i18n="nav_services">Usluge</a></li>
+      <li><a href="#/katalozi" data-i18n="nav_catalogues">Katalozi</a></li>
       <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
     </ul>
 
@@ -68,6 +72,9 @@
     </div>
   </nav>
 
+
+  <!-- ── MAIN CONTENT (toggles with catalogues page) ────── -->
+  <div id="main-content">
 
   <!-- ── HERO ───────────────────────────────────────────── -->
   <!--
@@ -446,6 +453,50 @@
     </div>
   </footer>
 
+  </div><!-- /#main-content -->
+
+
+  <!-- ── CATALOGUES PAGE (hidden by default) ─────────────── -->
+  <div id="catalogues-page" style="display:none;">
+    <section class="cat-section">
+      <div class="cat-header reveal">
+        <a href="#" class="cat-back" data-i18n="cat_back">← Natrag</a>
+        <div class="section-label" data-i18n="label_catalogues">Katalozi</div>
+        <h2 class="section-title" data-i18n="title_catalogues">Preuzmite naše <em>kataloge</em></h2>
+        <p class="cat-sub" data-i18n="sub_catalogues">Svi katalozi dostupni za besplatno preuzimanje</p>
+      </div>
+      <div class="catalogues-grid" id="catalogues-grid"></div>
+    </section>
+  </div>
+
+
+  <!-- ── PDF READER MODAL ────────────────────────────────── -->
+  <div id="pdf-modal" class="pdf-modal-bg">
+    <div class="pdf-modal-box">
+      <div class="pdf-modal-header">
+        <div class="pdf-modal-title" id="pdfModalTitle"></div>
+        <div class="pdf-modal-controls">
+          <button id="pdfPrevPage">&#8592;</button>
+          <span id="pdfPageInfo">1 / 1</span>
+          <button id="pdfNextPage">&#8594;</button>
+          <a id="pdfDownload" download>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </a>
+          <button id="pdfModalClose">&#215;</button>
+        </div>
+      </div>
+      <div class="pdf-modal-content">
+        <canvas id="pdfCanvas"></canvas>
+      </div>
+    </div>
+  </div>
+
+
   <!-- ── SCRIPTS ─────────────────────────────────────────── -->
   <div id="google_translate_element" style="display:none;"></div>
   <script type="text/javascript">
@@ -457,6 +508,7 @@
     src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script src="js/lang.js"></script>
+  <script src="js/catalogues.js"></script>
   <script src="js/main.js"></script>
 
   <!-- ── CONTACT MODAL ────────────────────────────────────── -->

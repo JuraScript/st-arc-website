@@ -7,6 +7,7 @@ const translations = {
     nav_projects: "Projekti",
     nav_about: "O nama",
     nav_services: "Usluge",
+    nav_catalogues: "Katalozi",
     nav_contact: "Kontakt",
     nav_cta: "Zatražite ponudu",
 
@@ -122,13 +123,35 @@ const translations = {
     form_submit: "<span>Pošalji upit</span>",
     form_note: "Odgovaramo unutar 24 sata.",
     form_success_title: "Poruka poslana",
-    form_success_text: "Hvala vam na upitu. Javit ćemo vam se u najkraćem mogućem roku."
+    form_success_text: "Hvala vam na upitu. Javit ćemo vam se u najkraćem mogućem roku.",
+
+    label_catalogues: "Katalozi",
+    title_catalogues: "Preuzmite naše <em>kataloge</em>",
+    sub_catalogues: "Svi katalozi dostupni za besplatno preuzimanje",
+    cat_back: "← Natrag",
+    cat1_title: "Glavni katalog ST Arc",
+    cat1_desc: "Kompletna ponuda ST Arc instalacija — od gradskih adventa do privatnih projekata.",
+    cat2_title: "Svjetlosne dekoracije",
+    cat2_desc: "Pregled svih vrsta svjetlosnih dekoracija — LED motivi, 3D figure, zavjese i sige.",
+    cat3_title: "Katalog 2019–2020",
+    cat3_desc: "LED konopi, svjetleće sige, zavjese, novi 3D motivi i pregled radionice.",
+    cat4_title: "Posebno izdanje 2018–19",
+    cat4_desc: "Božićne dekoracije, gradovi, 3D motivi, Salaj Land i uskrsne instalacije.",
+    cat5_title: "Katalog 2017",
+    cat5_desc: "Arhivski katalog iz 2017. godine s kompletnom ponudom tog razdoblja.",
+    cat6_title: "Valentinovo & Maškare",
+    cat6_desc: "Srca, prolazi ljubavi, maske i dekoracije za posebne prigode.",
+    cat7_title: "Posebno izdanje 2015",
+    cat7_desc: "3D figurice, Štrumpfovi, Pegaz, inox jelke — arhivska posebna ponuda.",
+    cat8_title: "Uskrsni katalog 2026",
+    cat8_desc: "Najnovija kolekcija uskrsnih dekoracija — jaja, zeci, proljetni motivi."
   },
 
   en: {
     nav_projects: "Projects",
     nav_about: "About Us",
     nav_services: "Services",
+    nav_catalogues: "Catalogues",
     nav_contact: "Contact",
     nav_cta: "Get a Quote",
 
@@ -244,7 +267,28 @@ const translations = {
     form_submit: "<span>Send Inquiry</span>",
     form_note: "We reply within 24 hours.",
     form_success_title: "Message Sent",
-    form_success_text: "Thank you for your inquiry. We will get back to you as soon as possible."
+    form_success_text: "Thank you for your inquiry. We will get back to you as soon as possible.",
+
+    label_catalogues: "Catalogues",
+    title_catalogues: "Download our <em>catalogues</em>",
+    sub_catalogues: "All catalogues available for free download",
+    cat_back: "← Back",
+    cat1_title: "ST Arc Main Catalogue",
+    cat1_desc: "Complete ST Arc installation range — from city advent to private projects.",
+    cat2_title: "Light Decorations",
+    cat2_desc: "Overview of all light decoration types — LED motifs, 3D figures, curtains and icicles.",
+    cat3_title: "Catalogue 2019–2020",
+    cat3_desc: "LED ropes, light icicles, curtains, new 3D motifs and workshop overview.",
+    cat4_title: "Special Edition 2018–19",
+    cat4_desc: "Christmas decorations, cities, 3D motifs, Salaj Land and Easter installations.",
+    cat5_title: "Catalogue 2017",
+    cat5_desc: "Archive catalogue from 2017 with the complete product range of that period.",
+    cat6_title: "Valentine's Day & Carnival",
+    cat6_desc: "Hearts, love arches, masks and decorations for special occasions.",
+    cat7_title: "Special Edition 2015",
+    cat7_desc: "3D figurines, Smurfs, Pegasus, stainless steel trees — archived special offer.",
+    cat8_title: "Easter Catalogue 2026",
+    cat8_desc: "Latest Easter decoration collection — eggs, bunnies, spring motifs."
   },
 
   de: {
