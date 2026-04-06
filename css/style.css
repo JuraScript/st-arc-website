@@ -599,9 +599,19 @@ section { position: relative; }
   background: rgba(201, 151, 58, 0.04);
 }
 .value-icon {
-  font-size: 22px;
-  margin-bottom: 12px;
-  display: block;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+.value-icon svg {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.value-item:hover .value-icon svg {
+  transform: scale(1.15) rotate(8deg);
+  color: var(--gold-light);
 }
 .value-name {
   font-size: 12px;
