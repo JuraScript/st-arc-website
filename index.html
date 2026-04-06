@@ -19,6 +19,9 @@
 
 <body>
 
+  <!-- ── SCROLL PROGRESS ────────────────────────────────── -->
+  <div id="scrollProgress"></div>
+
   <!-- ── CUSTOM CURSOR ──────────────────────────────────── -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
@@ -55,7 +58,7 @@
         </ul>
       </div>
 
-      <a href="#contact" class="nav-cta" data-i18n="nav_cta">Zatražite ponudu</a>
+      <a href="#contact" class="nav-cta" data-i18n="nav_cta" onclick="openModal(event)">Zatražite ponudu</a>
 
       <div class="nav-toggle" id="navToggle">
         <span></span>
@@ -88,25 +91,25 @@
         za gradove, događaje i komercijalne prostore — već 30 godina.
       </p>
 
+      <!-- Stats — repositioned into flow for tablet/mobile -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-i18n="hero_stat1_num">30+</span>
+          <span class="stat-label" data-i18n="hero_stat1">Godina iskustva</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-i18n="hero_stat2_a">HR</span>
+          <span class="stat-label" data-i18n="hero_stat2_b">i Europa</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-i18n="hero_stat3_a">EU</span>
+          <span class="stat-label" data-i18n="hero_stat3_b">Standardi</span>
+        </div>
+      </div>
+
       <div class="hero-buttons">
         <a href="#projects" class="btn-primary" data-i18n="hero_btn_projects"><span>Pogledaj projekte</span></a>
-        <a href="#contact" class="btn-outline" data-i18n="hero_btn_contact">Zatražite ponudu</a>
-      </div>
-    </div>
-
-    <!-- Stats — bottom right, above scroll indicator -->
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-number" data-i18n="hero_stat1_num">30+</span>
-        <span class="stat-label" data-i18n="hero_stat1">Godina iskustva</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number" data-i18n="hero_stat2_a">HR</span>
-        <span class="stat-label" data-i18n="hero_stat2_b">i Europa</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number" data-i18n="hero_stat3_a">EU</span>
-        <span class="stat-label" data-i18n="hero_stat3_b">Standardi</span>
+        <a href="#contact" class="btn-outline" data-i18n="hero_btn_contact" onclick="openModal(event)">Zatražite ponudu</a>
       </div>
     </div>
 
@@ -455,6 +458,72 @@
 
   <script src="js/lang.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- ── CONTACT MODAL ────────────────────────────────────── -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Success Message (Hidden by default) -->
+      <div class="modal-success" id="modalSuccess" style="display: none;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px; display: inline-block;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        <h3 class="section-title" data-i18n="form_success_title" style="font-size: 32px; margin-bottom: 10px;">Poruka poslana</h3>
+        <p style="color: var(--text-muted); font-size: 14px;" data-i18n="form_success_text">Hvala vam na upitu. Javit ćemo vam se u najkraćem mogućem roku.</p>
+      </div>
+
+      <!-- Form Content -->
+      <div id="modalFormContent">
+        <div class="section-label" data-i18n="modal_eyebrow">Kontaktirajte nas</div>
+        <h3 class="modal-title" data-i18n="modal_title">Opišite nam vaš <em>projekt</em></h3>
+
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-grid">
+            <div class="input-group">
+              <label for="frmName" data-i18n="form_name">Ime i prezime</label>
+              <input type="text" id="frmName" required>
+            </div>
+            <div class="input-group">
+              <label for="frmEmail" data-i18n="form_email">Email</label>
+              <input type="email" id="frmEmail" required>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="input-group">
+              <label for="frmPhone" data-i18n="form_phone">Telefon</label>
+              <input type="tel" id="frmPhone">
+            </div>
+            <div class="input-group">
+              <label for="frmType" data-i18n="form_type">Tip projekta</label>
+              <select id="frmType" required>
+                <option value="" disabled selected data-i18n="form_type_ph">Odaberite opciju</option>
+                <option value="Gradski advent" data-i18n="form_type_1">Gradski advent</option>
+                <option value="Shopping centar" data-i18n="form_type_2">Shopping centar</option>
+                <option value="Event/Festival" data-i18n="form_type_3">Event/Festival</option>
+                <option value="Hotel" data-i18n="form_type_4">Hotel</option>
+                <option value="Privatni event" data-i18n="form_type_5">Privatni event</option>
+                <option value="Ostalo" data-i18n="form_type_6">Ostalo</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="frmLocation" data-i18n="form_location">Lokacija</label>
+            <input type="text" id="frmLocation" required>
+          </div>
+          <div class="input-group">
+            <label for="frmMsg" data-i18n="form_msg">Opis</label>
+            <textarea id="frmMsg" rows="3" required></textarea>
+          </div>
+
+          <div class="form-footer" style="margin-top: 30px;">
+            <button type="submit" class="btn-primary" style="width: 100%; border:none; margin-bottom: 12px; cursor:none;" data-i18n="form_submit"><span>Pošalji upit</span></button>
+            <div class="form-note" data-i18n="form_note">Odgovaramo unutar 24 sata.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 </body>
 

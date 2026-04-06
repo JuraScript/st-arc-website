@@ -102,7 +102,27 @@ const translations = {
 
     ft_copy: "© 2025 ST Arc d.o.o. Sva prava pridržana.",
     ft_terms: "Uvjeti korištenja",
-    ft_privacy: "Privatnost"
+    ft_privacy: "Privatnost",
+
+    modal_eyebrow: "Kontaktirajte nas",
+    modal_title: "Opišite nam vaš <em>projekt</em>",
+    form_name: "Ime i prezime",
+    form_email: "Email adresa",
+    form_phone: "Broj telefona",
+    form_type: "Tip projekta",
+    form_type_ph: "Odaberite opciju",
+    form_type_1: "Gradski advent",
+    form_type_2: "Shopping centar",
+    form_type_3: "Event/Festival",
+    form_type_4: "Hotel",
+    form_type_5: "Privatni event",
+    form_type_6: "Ostalo",
+    form_location: "Lokacija projekta",
+    form_msg: "Opis projekta (dimenzije, želje...)",
+    form_submit: "<span>Pošalji upit</span>",
+    form_note: "Odgovaramo unutar 24 sata.",
+    form_success_title: "Poruka poslana",
+    form_success_text: "Hvala vam na upitu. Javit ćemo vam se u najkraćem mogućem roku."
   },
 
   en: {
@@ -204,7 +224,27 @@ const translations = {
 
     ft_copy: "© 2025 ST Arc d.o.o. All rights reserved.",
     ft_terms: "Terms of Use",
-    ft_privacy: "Privacy Policy"
+    ft_privacy: "Privacy Policy",
+
+    modal_eyebrow: "Contact Us",
+    modal_title: "Describe your <em>project</em>",
+    form_name: "Full Name",
+    form_email: "Email Address",
+    form_phone: "Phone Number",
+    form_type: "Project Type",
+    form_type_ph: "Select an option",
+    form_type_1: "City Advent",
+    form_type_2: "Shopping Center",
+    form_type_3: "Event/Festival",
+    form_type_4: "Hotel",
+    form_type_5: "Private Event",
+    form_type_6: "Other",
+    form_location: "Project Location",
+    form_msg: "Project Description (dimensions, ideas...)",
+    form_submit: "<span>Send Inquiry</span>",
+    form_note: "We reply within 24 hours.",
+    form_success_title: "Message Sent",
+    form_success_text: "Thank you for your inquiry. We will get back to you as soon as possible."
   },
 
   de: {
