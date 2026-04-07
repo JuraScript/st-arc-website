@@ -293,10 +293,20 @@ section {
 .hero-bg {
   position: absolute;
   inset: -15px;
-  background: url('../images/hero-fontana.jpg') center 60% / cover no-repeat;
+  /* background: url('../images/hero-fontana.jpg') center 60% / cover no-repeat; -- now handled by video poster */
   filter: blur(6px) brightness(0.95);
   animation: kenburns 20s ease-in-out infinite alternate;
 }
+
+.hero-video-src {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 .hero-bg::after {
   content: '';
