@@ -77,13 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateNavBg() {
     const menuOpen = navLinks && navLinks.classList.contains('active');
     if (window.scrollY > 80 || menuOpen) {
-      nav.style.background = 'rgba(9, 10, 15, 0.97)';
-      nav.style.backdropFilter = 'blur(12px)';
-      nav.style.borderBottom = '1px solid rgba(201, 151, 58, 0.1)';
+      nav.classList.add('nav-solid');
     } else {
-      nav.style.background = 'linear-gradient(to bottom, rgba(9,10,15,0.95), transparent)';
-      nav.style.backdropFilter = '';
-      nav.style.borderBottom = 'none';
+      nav.classList.remove('nav-solid');
     }
   }
 
@@ -315,6 +311,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle initial load (e.g. direct link to #/katalozi)
   if (location.hash === '#/katalozi') {
     handleRoute();
+  } else {
+    // If returning from a refresh on another section, ensure we show main content correctly
+    document.getElementById('main-content').style.display = '';
+    document.getElementById('catalogues-page').style.display = 'none';
   }
+
+  // Force scroll to top on every refresh
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 10);
 
 });

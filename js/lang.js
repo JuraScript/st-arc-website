@@ -1659,8 +1659,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
           elements.forEach(el => el.classList.remove('lang-fade-in'));
-        }, 250);
-      }, 250);
+        }, 200);
+      }, 150);
     } else {
       elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
