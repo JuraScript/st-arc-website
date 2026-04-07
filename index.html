@@ -37,9 +37,9 @@
     <ul class="nav-links">
       <li><a href="#/svi-projekti" data-i18n="nav_projects">Projekti</a></li>
       <li><a href="#/o-nama" data-i18n="nav_about">O nama</a></li>
-      <li><a href="#services" data-i18n="nav_services">Usluge</a></li>
+      <li><a href="#/usluge" data-i18n="nav_services">Usluge</a></li>
       <li><a href="#/katalozi" data-i18n="nav_catalogues">Katalozi</a></li>
-      <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
+      <li><a href="#/kontakt" data-i18n="nav_contact">Kontakt</a></li>
     </ul>
 
     <!-- Utility container for right alignment -->
@@ -62,7 +62,7 @@
         </ul>
       </div>
 
-      <a href="#contact" class="nav-cta" data-i18n="nav_cta" onclick="openModal(event)">Zatražite ponudu</a>
+      <a href="javascript:void(0)" onclick="openModal(event)" class="nav-cta" data-i18n="nav_cta">Zatražite ponudu</a>
 
       <div class="nav-toggle" id="navToggle">
         <span></span>
@@ -116,7 +116,7 @@
 
       <div class="hero-buttons">
         <a href="#projects" class="btn-primary" data-i18n="hero_btn_projects"><span>Pogledaj projekte</span></a>
-        <a href="#contact" class="btn-outline" data-i18n="hero_btn_contact" onclick="openModal(event)">Zatražite ponudu</a>
+        <a href="javascript:void(0)" onclick="openModal(event)" class="btn-outline" data-i18n="hero_btn_contact">Zatražite ponudu</a>
       </div>
     </div>
 
@@ -127,33 +127,28 @@
   <section class="trust-strip">
     <div class="trust-strip-inner">
       <div class="trust-pillar reveal">
-        <span class="pillar-number" data-i18n="ts1_num">30+</span>
-        <span class="pillar-label" data-i18n="ts1_label">Godina iskustva</span>
-      </div>
-      <div class="pillar-sep"></div>
-      <div class="trust-pillar reveal reveal-delay-1">
         <span class="pillar-number" data-i18n="ts2_num">200+</span>
         <span class="pillar-label" data-i18n="ts2_label">Realiziranih projekata</span>
       </div>
       <div class="pillar-sep"></div>
-      <div class="trust-pillar reveal reveal-delay-2">
+      <div class="trust-pillar reveal reveal-delay-1">
         <span class="pillar-number" data-i18n="ts3_num">12+</span>
         <span class="pillar-label" data-i18n="ts3_label">Europskih zemalja</span>
       </div>
       <div class="pillar-sep"></div>
-      <div class="trust-pillar reveal reveal-delay-3">
+      <div class="trust-pillar reveal reveal-delay-2">
         <span class="pillar-icon">✦</span>
         <span class="pillar-label" data-i18n="ts4_label">Vlastita proizvodnja</span>
       </div>
       <div class="pillar-sep"></div>
-      <div class="trust-pillar reveal reveal-delay-4">
+      <div class="trust-pillar reveal reveal-delay-3">
         <span class="pillar-icon">✦</span>
         <span class="pillar-label" data-i18n="ts5_label">EU certifikati</span>
       </div>
       <div class="pillar-sep"></div>
-      <div class="trust-pillar reveal reveal-delay-5">
+      <div class="trust-pillar reveal reveal-delay-4">
         <span class="pillar-icon">✦</span>
-        <span class="pillar-label" data-i18n="ts6_label">Custom izrada A–Ž</span>
+        <span class="pillar-label" data-i18n="ts6_label">Custom izrada A&nbsp;–&nbsp;Ž</span>
       </div>
     </div>
   </section>
@@ -460,8 +455,8 @@
         <ul class="footer-links">
           <li><a href="#projects" data-i18n="nav_projects">Projekti</a></li>
           <li><a href="#/o-nama" data-i18n="nav_about">O nama</a></li>
-          <li><a href="#services" data-i18n="nav_services">Usluge</a></li>
-          <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
+          <li><a href="#/usluge" data-i18n="nav_services">Usluge</a></li>
+          <li><a href="#/kontakt" data-i18n="nav_contact">Kontakt</a></li>
         </ul>
       </div>
 
@@ -480,10 +475,10 @@
         <p>
           <a href="mailto:info@st-arc.hr">info@st-arc.hr</a><br>
           <a href="tel:+38521339861">+385 21 339 861</a><br>
-          <a href="tel:+38598265642">+385 98 265 642</a><br>
+          <a href="tel:+385915180128">+385 91 518 0128</a><br>
           <br>
-          Dubrovačka 49<br>
-          21000 Split, Hrvatska
+          Don Frane Bulića 203<br>
+          21210 Solin, Hrvatska
         </p>
       </div>
 
@@ -542,6 +537,127 @@
 
 
   <!-- ── ABOUT PAGE (hidden by default) ────────────────────── -->
+  <!-- CONTACT PAGE -->
+  <div id="contact-page" style="display:none; padding-top: 140px;">
+    <section class="ap-section" style="padding-top: 0; padding-bottom: 80px;">
+      <div class="ap-inner" style="max-width: 1000px;">
+        <h1 class="ap-section-title ap-section-title--centered" data-i18n="nav_contact" style="margin-bottom: 60px;">Kontakt</h1>
+        
+        <div class="contact-grid">
+          <!-- Primary Info -->
+          <div class="contact-card">
+            <h2 class="contact-company">ST Arc d.o.o.</h2>
+            <div class="contact-divider"></div>
+            <p class="contact-text">
+              Don Frane Bulića 203<br>
+              Solin 21210<br>
+              Hrvatska
+            </p>
+            <div class="contact-links">
+              <a href="tel:+38521339861" class="contact-link">tel.: +385 21 339 861</a>
+              <a href="tel:+385915180128" class="contact-link">mob.: +385 91 518 0128</a>
+              <a href="mailto:info@st-arc.hr" class="contact-link">mail: info@st-arc.hr</a>
+            </div>
+          </div>
+
+          <!-- Legal Info -->
+          <div class="contact-card">
+            <h2 class="contact-company" style="font-size: 16px; margin-bottom: 20px; font-weight:400; opacity:0.8;">Administrativni podaci</h2>
+            <div class="contact-divider"></div>
+            <p class="contact-text text-sm">
+              Tvrtka upisana u trgovački registar:<br>
+              <span class="text-white">Trgovački sud u Splitu, Tt-95/6014-7</span>
+            </p>
+            <p class="contact-text text-sm">
+              Račun u ERSTE & STEIERMÄRKISCHE BANK D.D.<br>
+              Broj računa: <span class="text-white">HR 2624020061100718603</span>
+            </p>
+            <p class="contact-text text-sm" style="margin-bottom:0;">
+              Članovi uprave: <span class="text-white">Frane Jukić</span><br>
+              Matični broj: <span class="text-white">060109146</span><br>
+              OIB: <span class="text-white">58632083307</span><br>
+              Identifikacijski kod: <span class="text-white">HR-AB-O1-080624166</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-map-wrap" style="position: relative; background: var(--dark-3); min-height: 500px;">
+          <!-- Skeleton Loader -->
+          <div style="position: absolute; top:50%; left:50%; transform:translate(-50%,-50%); display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div class="lb-loader" style="display:block; position:relative;"></div>
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--gold);">Učitavanje lokacije...</span>
+          </div>
+
+          <!-- Iframe (loads dynamically, fades in) -->
+          <iframe 
+            id="googleMapIframe"
+            data-src="https://maps.google.com/maps?q=Don+Frane+Buli%C4%87a+203,+Solin,+Hrvatska&t=k&z=13&output=embed&iwloc=near" 
+            width="100%" 
+            height="500" 
+            style="border:0; position:relative; z-index:2; opacity:0; transition: opacity 1s ease-in-out;" 
+            allowfullscreen="" 
+            loading="lazy"
+            onload="this.style.opacity=1;">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer for Contact Page -->
+    <footer>
+      <div class="footer-main">
+        <div>
+          <div class="footer-logo">ST <span>ARC</span></div>
+          <p class="footer-tagline" data-i18n="ft_tagline">
+            30 godina stvaramo svjetlosnu čaroliju diljem Hrvatske i Europe.
+            Inox konstrukcije izrađujemo u našim radionicama u Splitu i Solinu.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" title="Instagram"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg></a>
+            <a href="#" class="social-btn" title="Facebook"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>
+            <a href="#" class="social-btn" title="YouTube"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM10 15V9l5.5 3-5.5 3z" /></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="ft_nav">Navigacija</div>
+          <ul class="footer-links">
+            <li><a href="#projects" data-i18n="nav_projects">Projekti</a></li>
+            <li><a href="#/o-nama" data-i18n="nav_about">O nama</a></li>
+            <li><a href="#/usluge" data-i18n="nav_services">Usluge</a></li>
+            <li><a href="#/kontakt" data-i18n="nav_contact">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="ft_srv">Usluge</div>
+          <ul class="footer-links">
+            <li><a href="#" data-i18n="ft_srv1">Advent instalacije</a></li>
+            <li><a href="#" data-i18n="ft_srv2">Eventske instalacije</a></li>
+            <li><a href="#" data-i18n="ft_srv3">Gradski prostori</a></li>
+            <li><a href="#" data-i18n="ft_srv4">Najam dekoracija</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-col-title" data-i18n="label_contact">Kontakt</div>
+          <p>
+            <a href="mailto:info@st-arc.hr">info@st-arc.hr</a><br>
+            <a href="tel:+38521339861">+385 21 339 861</a><br>
+            <a href="tel:+385915180128">+385 91 518 0128</a><br>
+            <br>
+            Don Frane Bulića 203<br>
+            21210 Solin, Hrvatska
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="ft_copy">© 2025 ST Arc d.o.o. Sva prava pridržana.</p>
+        <div class="footer-bottom-links">
+          <a href="#" data-i18n="ft_terms">Uvjeti korištenja</a>
+          <a href="#" data-i18n="ft_privacy">Privatnost</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
   <div id="about-page" style="display:none;">
 
     <!-- Hero -->
@@ -636,12 +752,218 @@
       <div class="ap-quote-inner reveal">
         <div class="ap-quote-mark">✦</div>
         <blockquote class="ap-quote">Sa svjetlom stvaramo iskustva koja se pamte.</blockquote>
-        <a href="#contact" class="btn-primary ap-quote-cta" onclick="openModal(event)" data-i18n="nav_cta"><span>Zatražite ponudu</span></a>
+        <a href="javascript:void(0)" onclick="openModal(event)" class="btn-primary ap-quote-cta" data-i18n="nav_cta"><span>Zatražite ponudu</span></a>
       </div>
     </div>
 
   </div><!-- /#about-page -->
 
+
+  <!-- SERVICES PAGE -->
+  <div id="services-page" style="display:none;">
+    <div class="ap-hero">
+      <div class="ap-hero-bg" style="background-image:url('images/hero-home-3.jpg')"></div>
+      <div class="ap-hero-inner">
+        <div class="ap-hero-content">
+          <a href="#" class="cat-back" data-i18n="cat_back">&#8592; Natrag</a>
+          <div class="section-label" style="margin-top:32px;">Usluge</div>
+          <h1 class="ap-hero-title">Od ideje do upaljenog <em>svjetla</em></h1>
+          <p class="ap-hero-sub">Ne bavimo se samo prodajom dekoracija. Bavimo se realizacijom ideja — od prvog razgovora o tome što želite postići, do trenutka kad se rasvjeta upali i prostor oživi. Svaka usluga koju nudimo dio je istog cilja: da vaša vizija postane stvarnost, bez kompromisa u kvaliteti i bez stresa oko detalja.</p>
+          <p class="ap-hero-sub" style="margin-top: 10px;">Evo što sve radimo za vas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 1: Prodaja -->
+    <div class="ap-section ap-section--dark">
+      <div class="ap-inner ap-cols">
+        <div class="ap-text reveal">
+          <div class="section-label">01 &#10022; Usluga</div>
+          <h2 class="ap-section-title">Prodaja i nabava <em>dekoracija</em></h2>
+          <p>U našoj ponudi nalazi se širok izbor LED svjetlosnih dekoracija, lampica, svjetlosnih cijevi, traka i gotovih motiva — od klasičnih blagdanskih elemenata do modernih dizajnerskih rješenja. Radimo s provjerenim materijalima i komponentama koje izdržavaju vanjske uvjete i dugogodišnju upotrebu.</p>
+          <p>Ako u našem katalogu ne pronađete točno ono što tražite, nabavit ćemo za vas — imamo razgranatu mrežu dobavljača i iskustvo u pronalaženju specifičnih elemenata za zahtjevnije projekte.</p>
+        </div>
+        <div class="ap-img-wrap reveal reveal-delay-1" style="background:var(--dark-3); min-height:400px; display:flex; align-items:center; justify-content:center; border: 1px solid rgba(201, 151, 58, 0.1);">
+          <div style="color:var(--text-muted); font-size:12px; letter-spacing:2px; text-transform:uppercase;">[Placeholder slike]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 2: Savjetovanje -->
+    <div class="ap-section ap-section--darker">
+      <div class="ap-inner ap-cols ap-cols--reverse">
+        <div class="ap-text reveal">
+          <div class="section-label">02 &#10022; Usluga</div>
+          <h2 class="ap-section-title">Savjetovanje i <em>razrada ideje</em></h2>
+          <p>Najbolji projekti ne počinju katalogom — počinju razgovorom. Prije nego što predložimo bilo kakvo rješenje, slušamo. Zanima nas kakav ugođaj želite stvoriti, tko su vaši posjetitelji, kako prostor izgleda danju i noću, koje su vam prioritete i koji je proračun.</p>
+          <p>Na temelju toga zajedno razrađujemo koncept — predlažemo motive, raspored, boje i tehnička rješenja, te vam pomažemo donijeti odluke koje imaju smisla i estetski i financijski. Naše 30-godišnje iskustvo znači da znamo što funkcionira, a što samo dobro zvuči na papiru.</p>
+        </div>
+        <div class="ap-img-wrap reveal reveal-delay-1" style="background:var(--dark-3); min-height:400px; display:flex; align-items:center; justify-content:center; border: 1px solid rgba(201, 151, 58, 0.1);">
+          <div style="color:var(--text-muted); font-size:12px; letter-spacing:2px; text-transform:uppercase;">[Placeholder slike]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 3: Vizualizacija (HIGHLIGHT) -->
+    <div class="ap-section srv-highlight reveal">
+      <div class="ap-inner" style="max-width: 1000px; text-align: center;">
+        <div class="section-label" style="justify-content:center; color: var(--gold);">Ključna usluga</div>
+        <h2 class="ap-section-title" style="margin-bottom: 30px;">Vizualizacija i simulacija <em>prostora</em></h2>
+        <p style="font-size: 16px; margin-bottom: 20px;">Ovo je dio koji mijenja sve. Prije nego što bilo što proizvedemo ili postavimo, pokazujemo vam kako će izgledati — na vašem prostoru, u stvarnim uvjetima.</p>
+        <p style="font-size: 16px; margin-bottom: 20px;">Pošaljete nam fotografiju lokacije — pročelje, trg, ulicu, interijer — i pomoću naprednih AI alata za vizualizaciju transformiramo je u realističan prikaz kako će prostor izgledati nakon postavljanja dekoracija. Vidite točno što dobivate prije nego što se donese konačna odluka.</p>
+        <p style="font-size: 16px; margin-bottom: 50px;">Ova tehnologija omogućuje nam da zajedno s vama testiramo različite varijante, boje i rasporede — sve prije nego što se krene u proizvodnju ili montažu. Bez iznenađenja, bez "zamišljanja", samo jasna slika onoga što vas čeka.</p>
+        <div class="srv-viz-container" id="aiVisualizer">
+           <!-- Slike -->
+           <img src="images/visualisation/before.jpg" class="viz-img viz-before" alt="Prostor prije">
+           <img src="images/visualisation/after.png" class="viz-img viz-after" alt="Simulacija rasvjete poslije">
+           
+           <!-- Animacijski slojevi -->
+           <div class="viz-noise"></div>
+           <div class="viz-gold-flash"></div>
+           <div class="viz-blur-overlay"></div>
+           
+           <!-- Loader Overlay -->
+           <div class="viz-loader-container">
+              <div class="viz-loader"></div>
+           </div>
+        </div>
+
+        <!-- Viz Button Below -->
+        <div class="viz-btn-wrapper" style="margin-top: 30px; text-align: center;">
+           <button class="viz-btn-main-new" id="vizBtn" aria-label="Vizualiziraj prostor">Visualise</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 4: Proizvodnja -->
+    <div class="ap-section ap-section--darker">
+      <div class="ap-inner ap-cols">
+        <div class="ap-text reveal">
+          <div class="section-label">03 &#10022; Usluga</div>
+          <h2 class="ap-section-title">Proizvodnja <em>po mjeri</em></h2>
+          <p>Sve što vidite u našem katalogu — i mnogo toga što nije u njemu — izrađujemo u vlastitoj radionici u Solinu. To znači da možemo raditi potpuno prilagođene elemente prema vašim željama, specifikacijama prostora ili brendu.</p>
+          <p>Logotipi, unikatni motivi, netipične dimenzije, posebni oblici, kombinacije boja — sve je moguće. I zato što kontroliramo cijeli proces od skice do gotovog proizvoda, možemo garantirati kvalitetu i držati rokove.</p>
+        </div>
+        <div class="ap-img-wrap reveal reveal-delay-1" style="background:var(--dark-3); min-height:400px; display:flex; align-items:center; justify-content:center; border: 1px solid rgba(201, 151, 58, 0.1);">
+           <div style="color:var(--text-muted); font-size:12px; letter-spacing:2px; text-transform:uppercase;">[Placeholder slike]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 5: Montaža -->
+    <div class="ap-section ap-section--dark">
+      <div class="ap-inner ap-cols ap-cols--reverse">
+        <div class="ap-text reveal">
+          <div class="section-label">04 &#10022; Usluga</div>
+          <h2 class="ap-section-title">Montaža i tehnička <em>podrška</em></h2>
+          <p>Dekoracija je dobra onoliko koliko je dobro postavljena. Naš tim dolazi na vašu lokaciju, obavlja profesionalnu montažu i pobrinut će se da sve radi besprijekorno — od napajanja i kabliranja do sigurnosnog pričvršćivanja na visini.</p>
+          <p>Tijekom cijele sezone dostupni smo za tehničku podršku. Ako nešto treba provjeriti, popraviti ili zamijeniti, dolazimo brzo i rješavamo na licu mjesta. Vi se bavite svojim poslom, a mi se brinemo da sve svijetli kako treba.</p>
+        </div>
+        <div class="ap-img-wrap reveal reveal-delay-1" style="background:var(--dark-3); min-height:400px; display:flex; align-items:center; justify-content:center; border: 1px solid rgba(201, 151, 58, 0.1);">
+           <div style="color:var(--text-muted); font-size:12px; letter-spacing:2px; text-transform:uppercase;">[Placeholder slike]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 6: Najam -->
+    <div class="ap-section ap-section--darker">
+      <div class="ap-inner ap-cols">
+        <div class="ap-text reveal">
+          <div class="section-label">05 &#10022; Usluga</div>
+          <h2 class="ap-section-title">Najam <em>dekoracija</em></h2>
+          <p>Ne želite investirati u kupnju? Nudimo i najam naših dekoracija — idealno rješenje za jednokratne događaje, sezonske potrebe ili klijente koji žele svake godine drugačiji ugođaj bez troškova skladištenja i održavanja.</p>
+          <p>Najam uključuje dostavu, montažu, demontažu i povrat, tako da vi ne morate razmišljati ni o čemu osim o tome kako će sve izgledati.</p>
+        </div>
+        <div class="ap-img-wrap reveal reveal-delay-1" style="background:var(--dark-3); min-height:400px; display:flex; align-items:center; justify-content:center; border: 1px solid rgba(201, 151, 58, 0.1);">
+           <div style="color:var(--text-muted); font-size:12px; letter-spacing:2px; text-transform:uppercase;">[Placeholder slike]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 7: Održavanje -->
+    <div class="ap-section ap-section--dark">
+      <div class="ap-inner ap-cols ap-cols--reverse">
+        <div class="ap-text reveal">
+          <div class="section-label">06 &#10022; Usluga</div>
+          <h2 class="ap-section-title">Održavanje i <em>skladištenje</em></h2>
+          <p>Za klijente koji koriste iste dekoracije iz godine u godinu, nudimo i uslugu sezonskog održavanja i skladištenja. Nakon sezone preuzimamo dekoracije, provjeravamo ih, popravljamo eventualna oštećenja i čuvamo u primjerenim uvjetima do sljedeće upotrebe.</p>
+          <p>Sljedeće godine sve je spremno — kao novo.</p>
+        </div>
+        <div class="ap-img-wrap reveal reveal-delay-1" style="background:var(--dark-3); min-height:400px; display:flex; align-items:center; justify-content:center; border: 1px solid rgba(201, 151, 58, 0.1);">
+           <div style="color:var(--text-muted); font-size:12px; letter-spacing:2px; text-transform:uppercase;">[Placeholder slike]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 8: Jedna adresa za sve -->
+    <div class="ap-section ap-section--darker">
+      <div class="ap-inner" style="max-width:800px; text-align:center;">
+        <div class="section-label" style="justify-content:center;">Zaključak</div>
+        <h2 class="ap-section-title" style="margin-bottom: 30px;">Jedna adresa <em>za sve</em></h2>
+        <p style="font-size: 16px; margin-bottom: 20px;">Ono što nas razlikuje nije pojedinačna usluga, nego činjenica da sve radimo pod jednim krovom. Nema koordinacije između više dobavljača, nema prebacivanja odgovornosti, nema "to nije naš dio posla". Od prvog razgovora do zadnje upaljene lampice — sve je na nama.</p>
+        <p style="font-size: 16px;">Vi dobivate jednog sugovornika, jedan tim i jednu odgovornu stranu. Mi dobivamo priliku da napravimo nešto čime ćete ponositi.</p>
+      </div>
+    </div>
+
+    <!-- PUNCHLINE -->
+    <div class="ap-section srv-punchline reveal" style="padding-top: 80px; padding-bottom: 160px; text-align:center;">
+       <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 64px); font-weight:300; color:var(--gold); font-style:italic;">Sa svjetlom stvaramo iskustva koja se pamte.</h2>
+    </div>
+
+    <!-- Footer for Services Page -->
+    <footer>
+      <div class="footer-main">
+        <div>
+          <div class="footer-logo">ST <span>ARC</span></div>
+          <p class="footer-tagline" data-i18n="ft_tagline">
+            30 godina stvaramo svjetlosnu čaroliju diljem Hrvatske i Europe.
+            Inox konstrukcije izrađujemo u našim radionicama u Splitu i Solinu.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" title="Instagram"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg></a>
+            <a href="#" class="social-btn" title="Facebook"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>
+            <a href="#" class="social-btn" title="YouTube"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM10 15V9l5.5 3-5.5 3z" /></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="ft_nav">Navigacija</div>
+          <ul class="footer-links">
+            <li><a href="#projects" data-i18n="nav_projects">Projekti</a></li>
+            <li><a href="#/o-nama" data-i18n="nav_about">O nama</a></li>
+            <li><a href="#/usluge" data-i18n="nav_services">Usluge</a></li>
+            <li><a href="#/kontakt" data-i18n="nav_contact">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title" data-i18n="ft_srv">Usluge</div>
+          <ul class="footer-links">
+            <li><a href="#" data-i18n="ft_srv1">Advent instalacije</a></li>
+            <li><a href="#" data-i18n="ft_srv2">Eventske instalacije</a></li>
+            <li><a href="#" data-i18n="ft_srv3">Gradski prostori</a></li>
+            <li><a href="#" data-i18n="ft_srv4">Najam dekoracija</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-col-title" data-i18n="label_contact">Kontakt</div>
+          <p>
+            <a href="mailto:info@st-arc.hr">info@st-arc.hr</a><br>
+            <a href="tel:+38521339861">+385 21 339 861</a><br>
+            <a href="tel:+385915180128">+385 91 518 0128</a><br>
+            <br>
+            Don Frane Bulića 203<br>
+            21210 Solin, Hrvatska
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="ft_copy">© 2025 ST Arc d.o.o. Sva prava pridržana.</p>
+        <div class="footer-bottom-links">
+          <a href="#" data-i18n="ft_terms">Uvjeti korištenja</a>
+          <a href="#" data-i18n="ft_privacy">Privatnost</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <!-- ── PDF READER MODAL ────────────────────────────────── -->
   <div id="pdf-modal" class="pdf-modal-bg">

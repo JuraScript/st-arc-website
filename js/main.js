@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function animateRing() {
-      rx += (mx - rx - 18) * 0.12;
-      ry += (my - ry - 18) * 0.12;
+      rx += (mx - rx - 18) * 0.15;
+      ry += (my - ry - 18) * 0.15;
       ring.style.left = rx + 'px';
       ring.style.top = ry + 'px';
       requestAnimationFrame(animateRing);
@@ -269,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showMain() {
     document.getElementById('main-content').style.display = '';
+    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
     document.getElementById('catalogues-page').style.display = 'none';
     document.getElementById('about-page').style.display = 'none';
     document.getElementById('projects-page').style.display = 'none';
@@ -278,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showCatalogues() {
     document.getElementById('main-content').style.display = 'none';
+    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
     document.getElementById('catalogues-page').style.display = '';
     document.getElementById('about-page').style.display = 'none';
     document.getElementById('projects-page').style.display = 'none';
@@ -295,8 +297,55 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLang('catalogues-page');
   }
 
+  function showContact() {
+    document.getElementById('main-content').style.display = 'none';
+    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
+    document.getElementById('catalogues-page').style.display = 'none';
+    document.getElementById('about-page').style.display = 'none';
+    document.getElementById('projects-page').style.display = 'none';
+    document.getElementById('album-view-page').style.display = 'none';
+    
+    const contactPage = document.getElementById('contact-page');
+    if (contactPage) contactPage.style.display = '';
+    
+    // Dynamic iframe loading for performance
+    const mapIframe = document.getElementById('googleMapIframe');
+    if (mapIframe && mapIframe.getAttribute('data-src')) {
+      // Slight artificial delay so page transition looks instantly smooth before map grabs network
+      setTimeout(() => {
+        mapIframe.src = mapIframe.getAttribute('data-src');
+        mapIframe.removeAttribute('data-src');
+      }, 300);
+    }
+    
+    window.scrollTo(0, 0);
+    applyLang('contact-page');
+  }
+
+  function showServices() {
+    document.getElementById('main-content').style.display = 'none';
+    document.getElementById('catalogues-page').style.display = 'none';
+    document.getElementById('about-page').style.display = 'none';
+    document.getElementById('projects-page').style.display = 'none';
+    document.getElementById('contact-page').style.display = 'none';
+    document.getElementById('album-view-page').style.display = 'none';
+    
+    const servicesPage = document.getElementById('services-page');
+    if (servicesPage) servicesPage.style.display = '';
+    
+    window.scrollTo(0, 0);
+    applyLang('services-page');
+    
+    // Trigger scroll reveals specifically for services page
+    document.querySelectorAll('#services-page .reveal').forEach(el => {
+      el.classList.remove('visible');
+      revealObserver.observe(el);
+    });
+  }
+
   function showAbout() {
     document.getElementById('main-content').style.display = 'none';
+    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
     document.getElementById('catalogues-page').style.display = 'none';
     document.getElementById('about-page').style.display = '';
     document.getElementById('projects-page').style.display = 'none';
@@ -313,6 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showAllProjects() {
     document.getElementById('main-content').style.display = 'none';
+    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
     document.getElementById('catalogues-page').style.display = 'none';
     document.getElementById('about-page').style.display = 'none';
     document.getElementById('album-view-page').style.display = 'none';
@@ -331,6 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showAlbum(slug) {
     document.getElementById('main-content').style.display = 'none';
+    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
     document.getElementById('catalogues-page').style.display = 'none';
     document.getElementById('about-page').style.display = 'none';
     document.getElementById('projects-page').style.display = 'none';
@@ -442,6 +493,29 @@ document.addEventListener('DOMContentLoaded', () => {
       lb.querySelector('.lb-prev').addEventListener('click', (e) => { e.stopPropagation(); lbNavigate(-1); });
       lb.querySelector('.lb-next').addEventListener('click', (e) => { e.stopPropagation(); lbNavigate(1); });
       lb.querySelector('.lb-overlay').addEventListener('click', closeLightbox);
+
+      // Swipe logic for touch devices
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      lb.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, {passive: true});
+
+      lb.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, {passive: true});
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+          lbNavigate(1); // Swiped left -> next
+        }
+        if (touchEndX > touchStartX + swipeThreshold) {
+          lbNavigate(-1); // Swiped right -> prev
+        }
+      }
     }
 
     lb.classList.add('active');
@@ -500,8 +574,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const hash = location.hash;
     if (hash === '#/katalozi') {
       showCatalogues();
+    } else if (hash === '#/usluge') {
+      showServices();
     } else if (hash === '#/o-nama') {
       showAbout();
+    } else if (hash === '#/kontakt') {
+      showContact();
     } else if (hash === '#/svi-projekti') {
       showAllProjects();
     } else if (hash.startsWith('#/album/')) {
@@ -512,13 +590,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('catalogues-page').style.display !== 'none' ||
         document.getElementById('about-page').style.display !== 'none' ||
         document.getElementById('projects-page').style.display !== 'none' ||
-        document.getElementById('album-view-page').style.display !== 'none';
+        document.getElementById('album-view-page').style.display !== 'none' ||
+        document.getElementById('contact-page')?.style.display !== 'none';
 
       document.getElementById('main-content').style.display = '';
       document.getElementById('catalogues-page').style.display = 'none';
       document.getElementById('about-page').style.display = 'none';
       document.getElementById('projects-page').style.display = 'none';
       document.getElementById('album-view-page').style.display = 'none';
+      if (document.getElementById('contact-page')) document.getElementById('contact-page').style.display = 'none';
 
       if (wasOnSubpage) {
         window.scrollTo(0, 0);
@@ -529,13 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('hashchange', handleRoute);
 
   // Handle initial load
-  if (location.hash === '#/katalozi') {
-    handleRoute();
-  } else if (location.hash === '#/o-nama') {
-    handleRoute();
-  } else if (location.hash === '#/svi-projekti') {
-    handleRoute();
-  } else if (location.hash.startsWith('#/album/')) {
+  if (location.hash === '#/katalozi' || location.hash === '#/usluge' || location.hash === '#/o-nama' || location.hash === '#/svi-projekti' || location.hash === '#/kontakt' || location.hash.startsWith('#/album/')) {
     handleRoute();
   } else {
     document.getElementById('main-content').style.display = '';
@@ -543,6 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('about-page').style.display = 'none';
     document.getElementById('projects-page').style.display = 'none';
     document.getElementById('album-view-page').style.display = 'none';
+    if (document.getElementById('contact-page')) document.getElementById('contact-page').style.display = 'none';
   }
 
   // Force scroll to top on every refresh
@@ -552,5 +627,63 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     window.scrollTo(0, 0);
   }, 10);
+
+  /* ── AI VISUALIZATION COMPONENT ─────────────────────────── */
+  const vizContainer = document.getElementById('aiVisualizer');
+  const vizBtn = document.getElementById('vizBtn');
+  const vizFlash = document.querySelector('.viz-gold-flash');
+  
+  if (vizContainer && vizBtn) {
+    let isShowingResult = false;
+    let animSpeedMulti = 1;
+
+    vizBtn.addEventListener('click', () => {
+      if (isShowingResult) {
+        // Reset to original
+        resetVisualisation();
+        return;
+      }
+
+      // Start Visualisation Process
+      vizBtn.disabled = true;
+      vizContainer.classList.add('is-loading');
+      
+      const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const loadTime = isReduced ? 500 : 2000 * animSpeedMulti;
+
+      // Phase: Loading (Blur & Spinner)
+      // We start a very slow, gradual fade-in of the result image behind the blur
+      setTimeout(() => {
+         const afterImg = document.querySelector('.viz-after');
+         if(afterImg) {
+            afterImg.style.transition = `opacity ${loadTime * 0.8}ms ease-in-out`;
+            afterImg.style.opacity = '1';
+         }
+      }, 200 * animSpeedMulti);
+
+      // Final Phase: Reveal (Remove Blur & Spinner)
+      setTimeout(() => {
+        vizContainer.classList.remove('is-loading');
+        completeVisualisation();
+      }, loadTime);
+    });
+
+    function completeVisualisation() {
+      vizContainer.classList.add('is-done');
+      vizBtn.textContent = 'Show Original';
+      vizBtn.disabled = false;
+      isShowingResult = true;
+      animSpeedMulti = 0.8; // Next time 20% faster
+    }
+
+    function resetVisualisation() {
+      vizContainer.classList.remove('is-done');
+      const afterImg = document.querySelector('.viz-after');
+      afterImg.style.transition = 'opacity 0.6s ease';
+      afterImg.style.opacity = '0';
+      vizBtn.textContent = 'Visualise';
+      isShowingResult = false;
+    }
+  }
 
 });
