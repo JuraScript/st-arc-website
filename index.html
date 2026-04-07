@@ -35,8 +35,8 @@
     <a href="#" class="nav-logo">ST <span>ARC</span></a>
 
     <ul class="nav-links">
-      <li><a href="#projects" data-i18n="nav_projects">Projekti</a></li>
-      <li><a href="#about" data-i18n="nav_about">O nama</a></li>
+      <li><a href="#/svi-projekti" data-i18n="nav_projects">Projekti</a></li>
+      <li><a href="#/o-nama" data-i18n="nav_about">O nama</a></li>
       <li><a href="#services" data-i18n="nav_services">Usluge</a></li>
       <li><a href="#/katalozi" data-i18n="nav_catalogues">Katalozi</a></li>
       <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
@@ -123,6 +123,42 @@
   </section>
 
 
+  <!-- ── TRUST STRIP ───────────────────────────────────── -->
+  <section class="trust-strip">
+    <div class="trust-strip-inner">
+      <div class="trust-pillar reveal">
+        <span class="pillar-number" data-i18n="ts1_num">30+</span>
+        <span class="pillar-label" data-i18n="ts1_label">Godina iskustva</span>
+      </div>
+      <div class="pillar-sep"></div>
+      <div class="trust-pillar reveal reveal-delay-1">
+        <span class="pillar-number" data-i18n="ts2_num">200+</span>
+        <span class="pillar-label" data-i18n="ts2_label">Realiziranih projekata</span>
+      </div>
+      <div class="pillar-sep"></div>
+      <div class="trust-pillar reveal reveal-delay-2">
+        <span class="pillar-number" data-i18n="ts3_num">12+</span>
+        <span class="pillar-label" data-i18n="ts3_label">Europskih zemalja</span>
+      </div>
+      <div class="pillar-sep"></div>
+      <div class="trust-pillar reveal reveal-delay-3">
+        <span class="pillar-icon">✦</span>
+        <span class="pillar-label" data-i18n="ts4_label">Vlastita proizvodnja</span>
+      </div>
+      <div class="pillar-sep"></div>
+      <div class="trust-pillar reveal reveal-delay-4">
+        <span class="pillar-icon">✦</span>
+        <span class="pillar-label" data-i18n="ts5_label">EU certifikati</span>
+      </div>
+      <div class="pillar-sep"></div>
+      <div class="trust-pillar reveal reveal-delay-5">
+        <span class="pillar-icon">✦</span>
+        <span class="pillar-label" data-i18n="ts6_label">Custom izrada A–Ž</span>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ── TRUST BAR ──────────────────────────────────────── -->
   <div class="trust-bar">
     <div class="trust-bar-inner">
@@ -192,7 +228,7 @@
           dojam i postane ikonični dio prostora koji krasi.
         </p>
       </div>
-      <a href="#" class="view-all-link" data-i18n="link_all_projects">Svi projekti</a>
+      <a href="#/svi-projekti" class="view-all-link" data-i18n="link_all_projects">Svi projekti</a>
     </div>
 
     <div class="projects-grid reveal">
@@ -204,8 +240,10 @@
         <div class="project-overlay">
           <span class="project-number">01</span>
           <div class="project-name" data-i18n="p1_name">Zagreb — HNK</div>
-          <p class="project-desc" data-i18n="p1_desc">Inox stablo ispred Hrvatskog narodnog kazališta, ikonični simbol
-            zagrebačkog adventa.</p>
+          <div class="project-hover-reveal">
+            <div class="project-rule"></div>
+            <p class="project-desc" data-i18n="p1_desc">Inox stablo ispred Hrvatskog narodnog kazališta, ikonični simbol zagrebačkog adventa.</p>
+          </div>
         </div>
         <span class="project-tag" data-i18n="p1_tag">Zagreb</span>
       </div>
@@ -217,7 +255,10 @@
         <div class="project-overlay">
           <span class="project-number">02</span>
           <div class="project-name" data-i18n="p2_name">Markov trg</div>
-          <p class="project-desc" data-i18n="p2_desc">Inox instalacije u srcu Gornjeg grada uz crkvu sv. Marka.</p>
+          <div class="project-hover-reveal">
+            <div class="project-rule"></div>
+            <p class="project-desc" data-i18n="p2_desc">Inox instalacije u srcu Gornjeg grada uz crkvu sv. Marka.</p>
+          </div>
         </div>
         <span class="project-tag" data-i18n="p2_tag">Zagreb</span>
       </div>
@@ -229,8 +270,10 @@
         <div class="project-overlay">
           <span class="project-number">03</span>
           <div class="project-name" data-i18n="p3_name">Adventska ulica</div>
-          <p class="project-desc" data-i18n="p3_desc">Dekorativne instalacije koje pretvaraju ulicu u svjetlosni tunel.
-          </p>
+          <div class="project-hover-reveal">
+            <div class="project-rule"></div>
+            <p class="project-desc" data-i18n="p3_desc">Dekorativne instalacije koje pretvaraju ulicu u svjetlosni tunel.</p>
+          </div>
         </div>
         <span class="project-tag" data-i18n="p3_tag">Zagreb</span>
       </div>
@@ -242,8 +285,10 @@
         <div class="project-overlay">
           <span class="project-number">04</span>
           <div class="project-name" data-i18n="p4_name">Trg bana Jelačića</div>
-          <p class="project-desc" data-i18n="p4_desc">Spektakularna adventska dekoracija glavnog zagrebačkog trga iz
-            ptičje perspektive.</p>
+          <div class="project-hover-reveal">
+            <div class="project-rule"></div>
+            <p class="project-desc" data-i18n="p4_desc">Spektakularna adventska dekoracija glavnog zagrebačkog trga iz ptičje perspektive.</p>
+          </div>
         </div>
         <span class="project-tag" data-i18n="p4_tag">Zagreb</span>
       </div>
@@ -414,7 +459,7 @@
         <div class="footer-col-title" data-i18n="ft_nav">Navigacija</div>
         <ul class="footer-links">
           <li><a href="#projects" data-i18n="nav_projects">Projekti</a></li>
-          <li><a href="#about" data-i18n="nav_about">O nama</a></li>
+          <li><a href="#/o-nama" data-i18n="nav_about">O nama</a></li>
           <li><a href="#services" data-i18n="nav_services">Usluge</a></li>
           <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
         </ul>
@@ -469,6 +514,134 @@
     </section>
   </div>
 
+  <!-- ── SVI PROJEKTI (All Projects Page, hidden by default) ─────────────── -->
+  <div id="projects-page" style="display:none;">
+    <section class="projects-archive-section">
+      <div class="archive-header reveal">
+        <a href="#" class="cat-back" data-i18n="cat_back">← Natrag</a>
+        <div class="section-label" data-i18n="label_portfolio">Portfolio</div>
+        <h2 class="section-title">Svi <em>projekti</em></h2>
+        <p class="archive-sub">Istražite naše najvažnije svjetlosne instalacije i galerije slika po kategorijama.</p>
+      </div>
+      <div class="projects-archive-grid" id="projects-archive-grid"></div>
+    </section>
+  </div>
+
+  <!-- ── ALBUM VIEW (hidden by default) ─────────────── -->
+  <div id="album-view-page" style="display:none;">
+    <section class="album-section">
+      <div class="album-header reveal">
+        <a href="#/svi-projekti" class="cat-back">← Svi projekti</a>
+        <div class="section-label">Detalji</div>
+        <h2 class="section-title" id="album-title"><em>Album</em></h2>
+        <p class="album-sub" id="album-sub"></p>
+      </div>
+      <div class="album-masonry" id="album-masonry"></div>
+    </section>
+  </div>
+
+
+  <!-- ── ABOUT PAGE (hidden by default) ────────────────────── -->
+  <div id="about-page" style="display:none;">
+
+    <!-- Hero -->
+    <div class="ap-hero">
+      <div class="ap-hero-bg" style="background-image:url('images/cta-stabla.jpg')"></div>
+      <div class="ap-hero-inner">
+        <div class="ap-hero-content">
+          <a href="#" class="cat-back" data-i18n="cat_back">← Natrag</a>
+          <div class="section-label" style="margin-top:32px;" data-i18n="label_about">O nama</div>
+          <h1 class="ap-hero-title" data-i18n="about_hero_title">Naša <em>priča</em></h1>
+          <p class="ap-hero-sub" data-i18n="about_hero_sub">1993 — Split, Hrvatska</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 1: Naša priča (slika lijevo, tekst desno) -->
+    <div class="ap-section ap-section--dark">
+      <div class="ap-inner ap-cols">
+        <div class="ap-img-wrap reveal">
+          <img src="images/projekt-01-hnk.jpg" alt="ST Arc instalacija — Zagreb HNK" class="ap-img">
+          <div class="ap-img-caption">Zagreb — Hrvatsko narodno kazalište</div>
+        </div>
+        <div class="ap-text reveal reveal-delay-1">
+          <div class="section-label">Naša priča</div>
+          <h2 class="ap-section-title">Sve je počelo <em>1993.</em></h2>
+          <p>Sve je počelo 1993. godine, s jednostavnom idejom — da svjetlo može promijeniti način na koji doživljavamo prostor. Tri desetljeća kasnije, ta ideja i dalje je srce svega što radimo.</p>
+          <p>Iz male radionice ST Arc je s vremenom izrastao u ime iza svjetlosnih dekoracija koje svake godine uljepšavaju domove, gradske trgove i ulice diljem Hrvatske i Europe. Rasli smo polako i s pažnjom — projekt po projekt, grad po grad, sezonu po sezonu.</p>
+          <p>Mijenjale su se tehnologije, od klasičnih žarulja do suvremene LED rasvjete, ali ono što nas pokreće ostalo je isto: želja da stvorimo trenutke kojih se ljudi sjećaju.</p>
+          <p>I danas svaki motiv nastaje u našim radionicama u Splitu i Solinu, rukama ljudi koji u posao unose jednaku pažnju bilo da izrađuju klasičnu zvijezdu za lokalni trg ili unikatnu instalaciju za hotelsko predvorje. Volimo ono što radimo — i mislimo da se to vidi.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 2: Što nas pokreće (tekst lijevo, slika desno, tamna bg) -->
+    <div class="ap-section ap-section--darker">
+      <div class="ap-inner ap-cols ap-cols--reverse">
+        <div class="ap-text reveal">
+          <div class="section-label">Što nas pokreće</div>
+          <h2 class="ap-section-title">Onaj trenutak kad se <em>upali</em></h2>
+          <p>Nakon 30 godina, još uvijek nas najviše veseli onaj trenutak kad se prvi put upali rasvjeta i prostor oživi. Kad djeca zastanu pred figurom Djeda Božićnjaka, kad se trg napuni ljudima, kad se obični prolaz pretvori u nešto što se fotografira i pamti.</p>
+          <p>Taj trenutak je razlog zašto radimo ovo što radimo.</p>
+          <p>Vjerujemo da svjetlost nije samo dekoracija — ona je atmosfera, osjećaj, uspomena. Zato svakom projektu, jednostavnom ili zahtjevnom, pristupamo s jednakom dozom kreativnosti, preciznosti i dobre volje.</p>
+        </div>
+        <div class="ap-img-wrap reveal reveal-delay-1">
+          <img src="images/projekt-03-adventska-ulica.jpg" alt="Adventska ulica — svjetlosni tunel" class="ap-img">
+          <div class="ap-img-caption">Zagreb — Adventska ulica</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcija 3: Kako radimo -->
+    <div class="ap-section ap-section--dark">
+      <div class="ap-inner">
+        <div class="ap-process-header reveal">
+          <div class="section-label">Kako radimo</div>
+          <h2 class="ap-section-title ap-section-title--centered">Isti proces, <em>svaki put</em></h2>
+          <p class="ap-process-lead">Iza svakog projekta stoji isti proces: slušamo, predlažemo, proizvodimo, montiramo i ostajemo uz vas. Naš tim prati svaki detalj — od prve skice do posljednjeg upaljenog svjetla — kombinirajući vlastitu proizvodnju, vrhunske materijale i suvremene tehnologije.</p>
+        </div>
+        <div class="ap-steps">
+          <div class="ap-step reveal">
+            <span class="ap-step-num">01</span>
+            <div class="ap-step-name">Slušamo</div>
+            <p class="ap-step-desc">Svaki projekt počinje razgovorom. Razumijemo vaš prostor, viziju i potrebe.</p>
+          </div>
+          <div class="ap-step reveal reveal-delay-1">
+            <span class="ap-step-num">02</span>
+            <div class="ap-step-name">Predlažemo</div>
+            <p class="ap-step-desc">Naš tim izrađuje skice i prijedloge prilagođene točno vašim zahtjevima.</p>
+          </div>
+          <div class="ap-step reveal reveal-delay-2">
+            <span class="ap-step-num">03</span>
+            <div class="ap-step-name">Proizvodimo</div>
+            <p class="ap-step-desc">Svaki motiv nastaje u našim radionicama — vlastita inox konstrukcija, LED rasvjeta.</p>
+          </div>
+          <div class="ap-step reveal reveal-delay-3">
+            <span class="ap-step-num">04</span>
+            <div class="ap-step-name">Montiramo</div>
+            <p class="ap-step-desc">Postavljamo na licu mjesta, briznemo za svaki detalj do posljednjeg upaljenog svjetla.</p>
+          </div>
+          <div class="ap-step reveal reveal-delay-4">
+            <span class="ap-step-num">05</span>
+            <div class="ap-step-name">Ostajemo uz vas</div>
+            <p class="ap-step-desc">Podrška kroz cijelu sezonu — od prvog dana do demontaže.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing quote -->
+    <div class="ap-quote-section">
+      <div class="ap-quote-bg" style="background-image:url('images/projekt-04-trg-jelacic.jpg')"></div>
+      <div class="ap-quote-inner reveal">
+        <div class="ap-quote-mark">✦</div>
+        <blockquote class="ap-quote">Sa svjetlom stvaramo iskustva koja se pamte.</blockquote>
+        <a href="#contact" class="btn-primary ap-quote-cta" onclick="openModal(event)" data-i18n="nav_cta"><span>Zatražite ponudu</span></a>
+      </div>
+    </div>
+
+  </div><!-- /#about-page -->
+
 
   <!-- ── PDF READER MODAL ────────────────────────────────── -->
   <div id="pdf-modal" class="pdf-modal-bg">
@@ -509,6 +682,7 @@
 
   <script src="js/lang.js"></script>
   <script src="js/catalogues.js"></script>
+  <script src="js/projects-data.js"></script>
   <script src="js/main.js"></script>
 
   <!-- ── CONTACT MODAL ────────────────────────────────────── -->

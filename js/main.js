@@ -256,51 +256,271 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   };
   /* ── HASH ROUTER ──────────────────────────────────────────── */
-  function showMain() {
-    document.getElementById('main-content').style.display = '';
-    document.getElementById('catalogues-page').style.display = 'none';
-    window.scrollTo(0, 0);
-  }
-
-  function showCatalogues() {
-    document.getElementById('main-content').style.display = 'none';
-    document.getElementById('catalogues-page').style.display = '';
-    window.scrollTo(0, 0);
-
-    // Render grid + lazy thumbnails
-    renderCatalogGrid();
-    initThumbObserver();
-
-    // Re-init scroll reveal for catalogue cards
-    document.querySelectorAll('#catalogues-page .reveal').forEach(el => {
-      el.classList.remove('visible');
-      revealObserver.observe(el);
-    });
-
-    // Re-apply current language to new dynamic elements
+  function applyLang(pageId) {
     const lang = localStorage.getItem('starc_lang') || 'hr';
     const dict = translations[lang] || translations['en'] || {};
     const en = translations['en'] || {};
-    document.querySelectorAll('#catalogues-page [data-i18n]').forEach(el => {
+    document.querySelectorAll(`#${pageId} [data-i18n]`).forEach(el => {
       const key = el.getAttribute('data-i18n');
       const val = dict[key] || en[key];
       if (val) el.innerHTML = val;
     });
   }
 
+  function showMain() {
+    document.getElementById('main-content').style.display = '';
+    document.getElementById('catalogues-page').style.display = 'none';
+    document.getElementById('about-page').style.display = 'none';
+    document.getElementById('projects-page').style.display = 'none';
+    document.getElementById('album-view-page').style.display = 'none';
+    window.scrollTo(0, 0);
+  }
+
+  function showCatalogues() {
+    document.getElementById('main-content').style.display = 'none';
+    document.getElementById('catalogues-page').style.display = '';
+    document.getElementById('about-page').style.display = 'none';
+    document.getElementById('projects-page').style.display = 'none';
+    document.getElementById('album-view-page').style.display = 'none';
+    window.scrollTo(0, 0);
+
+    renderCatalogGrid();
+    initThumbObserver();
+
+    document.querySelectorAll('#catalogues-page .reveal').forEach(el => {
+      el.classList.remove('visible');
+      revealObserver.observe(el);
+    });
+
+    applyLang('catalogues-page');
+  }
+
+  function showAbout() {
+    document.getElementById('main-content').style.display = 'none';
+    document.getElementById('catalogues-page').style.display = 'none';
+    document.getElementById('about-page').style.display = '';
+    document.getElementById('projects-page').style.display = 'none';
+    document.getElementById('album-view-page').style.display = 'none';
+    window.scrollTo(0, 0);
+
+    document.querySelectorAll('#about-page .reveal').forEach(el => {
+      el.classList.remove('visible');
+      revealObserver.observe(el);
+    });
+
+    applyLang('about-page');
+  }
+
+  function showAllProjects() {
+    document.getElementById('main-content').style.display = 'none';
+    document.getElementById('catalogues-page').style.display = 'none';
+    document.getElementById('about-page').style.display = 'none';
+    document.getElementById('album-view-page').style.display = 'none';
+    document.getElementById('projects-page').style.display = '';
+    window.scrollTo(0, 0);
+
+    renderProjectsArchive();
+
+    document.querySelectorAll('#projects-page .reveal').forEach(el => {
+      el.classList.remove('visible');
+      revealObserver.observe(el);
+    });
+    
+    applyLang('projects-page');
+  }
+
+  function showAlbum(slug) {
+    document.getElementById('main-content').style.display = 'none';
+    document.getElementById('catalogues-page').style.display = 'none';
+    document.getElementById('about-page').style.display = 'none';
+    document.getElementById('projects-page').style.display = 'none';
+    document.getElementById('album-view-page').style.display = '';
+    window.scrollTo(0, 0);
+
+    renderAlbum(slug);
+
+    document.querySelectorAll('#album-view-page .reveal').forEach(el => {
+      el.classList.remove('visible');
+      revealObserver.observe(el);
+    });
+    
+    applyLang('album-view-page');
+  }
+
+  /* ── ALBUM RENDER ──────────────────────────────────────────── */
+  function renderProjectsArchive() {
+    const grid = document.getElementById('projects-archive-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    if (typeof PROJECT_ALBUMS === 'undefined') return;
+
+    PROJECT_ALBUMS.forEach((album, idx) => {
+      const card = document.createElement('a');
+      card.className = 'project-arc-card reveal reveal-delay-' + (idx % 3);
+      card.href = '#/album/' + album.slug;
+
+      card.innerHTML = `
+        <div class="project-arc-img-wrap">
+          <img src="${album.cover || 'images/placeholder.jpg'}" alt="${album.title}" loading="lazy">
+        </div>
+        <div class="project-arc-content">
+          <div class="project-arc-count">${album.images.length} Fotografija</div>
+          <h3 class="project-arc-title">${album.title}</h3>
+          <p class="project-arc-sub">${album.subtitle}</p>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  let lbImages = [];
+  let lbCurrentIndex = 0;
+
+  function renderAlbum(slug) {
+    if (typeof PROJECT_ALBUMS === 'undefined') return;
+    const album = PROJECT_ALBUMS.find(a => a.slug === slug);
+    if (!album) return;
+
+    document.getElementById('album-title').innerHTML = `<em>${album.title}</em>`;
+    document.getElementById('album-sub').textContent = album.subtitle;
+
+    const masonry = document.getElementById('album-masonry');
+    if (!masonry) return;
+    masonry.innerHTML = '';
+
+    lbImages = album.images;
+
+    album.images.forEach((imgSrc, idx) => {
+      const item = document.createElement('div');
+      item.className = 'masonry-item reveal reveal-delay-' + (idx % 3);
+      
+      const img = document.createElement('img');
+      img.src = imgSrc;
+      img.alt = album.title;
+      img.loading = 'lazy';
+      
+      item.appendChild(img);
+      
+      item.addEventListener('click', () => {
+        openLightbox(idx);
+      });
+
+      masonry.appendChild(item);
+    });
+  }
+
+  /* ── PREMIUM LIGHTBOX ──────────────────────────────────────────── */
+  function openLightbox(index) {
+    let lb = document.getElementById('premium-lightbox');
+    if (!lb) {
+      lb = document.createElement('div');
+      lb.id = 'premium-lightbox';
+      lb.className = 'premium-lightbox';
+      lb.innerHTML = `
+        <div class="lb-overlay"></div>
+        <div class="lb-topbar">
+          <div class="lb-counter"></div>
+          <button class="lb-close" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <button class="lb-prev" aria-label="Previous">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="lb-next" aria-label="Next">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <div class="lb-content">
+          <div class="lb-loader"></div>
+          <img class="lb-image" src="" alt="">
+        </div>
+      `;
+      document.body.appendChild(lb);
+
+      lb.querySelector('.lb-close').addEventListener('click', closeLightbox);
+      lb.querySelector('.lb-prev').addEventListener('click', (e) => { e.stopPropagation(); lbNavigate(-1); });
+      lb.querySelector('.lb-next').addEventListener('click', (e) => { e.stopPropagation(); lbNavigate(1); });
+      lb.querySelector('.lb-overlay').addEventListener('click', closeLightbox);
+    }
+
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    lbCurrentIndex = index;
+    updateLightbox();
+    
+    // Bind keys
+    document.addEventListener('keydown', lbKeyHandler);
+  }
+
+  function closeLightbox() {
+    const lb = document.getElementById('premium-lightbox');
+    if (lb) {
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', lbKeyHandler);
+    }
+  }
+
+  function lbNavigate(dir) {
+    lbCurrentIndex += dir;
+    if (lbCurrentIndex < 0) lbCurrentIndex = lbImages.length - 1;
+    if (lbCurrentIndex >= lbImages.length) lbCurrentIndex = 0;
+    updateLightbox();
+  }
+
+  function updateLightbox() {
+    const lb = document.getElementById('premium-lightbox');
+    if (!lb) return;
+    const imgEl = lb.querySelector('.lb-image');
+    const loader = lb.querySelector('.lb-loader');
+    const counter = lb.querySelector('.lb-counter');
+
+    imgEl.classList.remove('loaded');
+    loader.style.display = 'block';
+    
+    // Small delay to make transition super smooth
+    setTimeout(() => {
+      imgEl.src = lbImages[lbCurrentIndex];
+      imgEl.onload = () => {
+        loader.style.display = 'none';
+        imgEl.classList.add('loaded');
+      };
+      counter.textContent = `${lbCurrentIndex + 1} / ${lbImages.length}`;
+    }, 50);
+  }
+
+  function lbKeyHandler(e) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lbNavigate(-1);
+    if (e.key === 'ArrowRight') lbNavigate(1);
+  }
+
   function handleRoute() {
     const hash = location.hash;
     if (hash === '#/katalozi') {
       showCatalogues();
+    } else if (hash === '#/o-nama') {
+      showAbout();
+    } else if (hash === '#/svi-projekti') {
+      showAllProjects();
+    } else if (hash.startsWith('#/album/')) {
+      const slug = hash.replace('#/album/', '');
+      showAlbum(slug);
     } else {
-      // Only scroll to top if returning FROM catalogues page
-      const catPage = document.getElementById('catalogues-page');
-      const wasOnCatalogues = catPage.style.display !== 'none';
+      const wasOnSubpage =
+        document.getElementById('catalogues-page').style.display !== 'none' ||
+        document.getElementById('about-page').style.display !== 'none' ||
+        document.getElementById('projects-page').style.display !== 'none' ||
+        document.getElementById('album-view-page').style.display !== 'none';
 
       document.getElementById('main-content').style.display = '';
-      catPage.style.display = 'none';
+      document.getElementById('catalogues-page').style.display = 'none';
+      document.getElementById('about-page').style.display = 'none';
+      document.getElementById('projects-page').style.display = 'none';
+      document.getElementById('album-view-page').style.display = 'none';
 
-      if (wasOnCatalogues) {
+      if (wasOnSubpage) {
         window.scrollTo(0, 0);
       }
     }
@@ -308,13 +528,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('hashchange', handleRoute);
 
-  // Handle initial load (e.g. direct link to #/katalozi)
+  // Handle initial load
   if (location.hash === '#/katalozi') {
     handleRoute();
+  } else if (location.hash === '#/o-nama') {
+    handleRoute();
+  } else if (location.hash === '#/svi-projekti') {
+    handleRoute();
+  } else if (location.hash.startsWith('#/album/')) {
+    handleRoute();
   } else {
-    // If returning from a refresh on another section, ensure we show main content correctly
     document.getElementById('main-content').style.display = '';
     document.getElementById('catalogues-page').style.display = 'none';
+    document.getElementById('about-page').style.display = 'none';
+    document.getElementById('projects-page').style.display = 'none';
+    document.getElementById('album-view-page').style.display = 'none';
   }
 
   // Force scroll to top on every refresh

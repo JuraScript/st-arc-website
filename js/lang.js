@@ -10,6 +10,8 @@ const translations = {
     nav_catalogues: "Katalozi",
     nav_contact: "Kontakt",
     nav_cta: "Zatražite ponudu",
+    about_hero_title: "Naša <em>priča</em>",
+    about_hero_sub: "1993 — Split, Hrvatska",
 
     hero_eyebrow: "Custom inox instalacije",
     hero_title: "Svjetlost koja<br><em>transformira</em><br>prostore",
@@ -156,6 +158,8 @@ const translations = {
     nav_catalogues: "Catalogues",
     nav_contact: "Contact",
     nav_cta: "Get a Quote",
+    about_hero_title: "Our <em>Story</em>",
+    about_hero_sub: "1993 — Split, Croatia",
 
     hero_eyebrow: "Custom Stainless Steel Installations",
     hero_title: "Light that<br><em>transforms</em><br>spaces",
@@ -301,6 +305,8 @@ const translations = {
     nav_services: "Leistungen",
     nav_contact: "Kontakt",
     nav_cta: "Angebot anfragen",
+    about_hero_title: "Unsere <em>Geschichte</em>",
+    about_hero_sub: "1993 — Split, Kroatien",
 
     hero_eyebrow: "Maßgeschneiderte Edelstahl-Installationen",
     hero_title: "Licht, das<br><em>Räume</em><br>verwandelt",
@@ -444,6 +450,8 @@ const translations = {
     nav_services: "Services",
     nav_contact: "Contact",
     nav_cta: "Demander un devis",
+    about_hero_title: "Notre <em>histoire</em>",
+    about_hero_sub: "1993 — Split, Croatie",
 
     hero_eyebrow: "Installations en acier inoxydable sur mesure",
     hero_title: "La lumière qui<br><em>transforme</em><br>les espaces",
@@ -587,6 +595,8 @@ const translations = {
     nav_services: "Servizi",
     nav_contact: "Contatto",
     nav_cta: "Richiedi un preventivo",
+    about_hero_title: "La nostra <em>storia</em>",
+    about_hero_sub: "1993 — Spalato, Croazia",
 
     hero_eyebrow: "Installazioni in acciaio inox su misura",
     hero_title: "La luce che<br><em>trasforma</em><br>gli spazi",
