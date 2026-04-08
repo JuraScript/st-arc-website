@@ -2854,7 +2854,7 @@ footer {
   }
 
   .ap-hero-content {
-    padding: 0 24px 56px;
+    padding: 100px 24px 56px; /* Added 100px top padding to avoid fixed nav overlay */
   }
 
   .ap-section {
