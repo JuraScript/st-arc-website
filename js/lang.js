@@ -95,7 +95,7 @@ const translations = {
     btn_contact_primary: "<span>Zatražite ponudu</span>",
     btn_contact_secondary: "Nazovite nas",
 
-    ft_tagline: "30 godina stvaramo svjetlosnu čaroliju diljem Hrvatske i Europe. Inox konstrukcije izrađujemo u našim radionicama u Splitu i Solinu.",
+    ft_tagline: "30 godina stvaramo svjetlosnu čaroliju diljem Hrvatske i Europe. Inox konstrukcije izrađujemo u našoj radionici koja se nalazi u Solinu.",
     ft_nav: "Navigacija",
     ft_srv: "Usluge",
     ft_srv1: "Advent instalacije",
@@ -243,7 +243,7 @@ const translations = {
     btn_contact_primary: "<span>Get a Quote</span>",
     btn_contact_secondary: "Call Us",
 
-    ft_tagline: "For 30 years we've created light magic across Croatia and Europe. Our stainless steel structures are produced in our workshops in Split and Solin.",
+    ft_tagline: "For 30 years we've created light magic across Croatia and Europe. Our stainless steel structures are produced in our workshop located in Solin.",
     ft_nav: "Navigation",
     ft_srv: "Services",
     ft_srv1: "Advent Installations",
