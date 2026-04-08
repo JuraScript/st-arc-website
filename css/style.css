@@ -1022,14 +1022,14 @@ section {
 footer {
   background: var(--dark-2);
   border-top: 1px solid rgba(201, 151, 58, 0.12);
-  padding: 70px var(--section-padding-x) 40px;
+  padding: 55px var(--section-padding-x) 30px;
 }
 
 .footer-main {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 60px;
+  grid-template-columns: 2fr 1fr;
+  gap: 80px;
+  margin-bottom: 45px;
 }
 
 .footer-logo {
@@ -1050,7 +1050,7 @@ footer {
   font-weight: 300;
   line-height: 1.8;
   color: var(--text-muted);
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .footer-socials {
@@ -1126,7 +1126,7 @@ footer {
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 32px;
+  padding-top: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
