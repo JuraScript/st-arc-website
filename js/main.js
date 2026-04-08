@@ -594,6 +594,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('contact-page')?.style.display !== 'none';
 
       document.getElementById('main-content').style.display = '';
+      if (document.getElementById('services-page')) document.getElementById('services-page').style.display = 'none';
       document.getElementById('catalogues-page').style.display = 'none';
       document.getElementById('about-page').style.display = 'none';
       document.getElementById('projects-page').style.display = 'none';
@@ -613,6 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleRoute();
   } else {
     document.getElementById('main-content').style.display = '';
+    if (document.getElementById('services-page')) document.getElementById('services-page').style.display = 'none';
     document.getElementById('catalogues-page').style.display = 'none';
     document.getElementById('about-page').style.display = 'none';
     document.getElementById('projects-page').style.display = 'none';
