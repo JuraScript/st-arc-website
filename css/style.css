@@ -2698,6 +2698,38 @@ footer {
 /* When wrapper has height:auto, we need to ensure cover images still look good */
 .srv-img-wrapper:has(.img-cover) {
   aspect-ratio: 16 / 10; /* Fixed aspect for landscape to ensure they are "big enough" */
+  position: relative;
+}
+
+.srv-img-wrapper:has(.img-cover)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(9, 10, 15, 0.25) 0%,
+    rgba(9, 10, 15, 0.10) 50%,
+    rgba(9, 10, 15, 0.30) 100%
+  );
+  pointer-events: none;
+}
+
+/* Dark overlay for contained images (Prodaja i nabava) to blend with dark theme */
+.srv-img-wrapper:has(.img-contain) {
+  position: relative;
+}
+
+.srv-img-wrapper:has(.img-contain)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(9, 10, 15, 0.35) 0%,
+    rgba(9, 10, 15, 0.15) 50%,
+    rgba(9, 10, 15, 0.40) 100%
+  );
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
