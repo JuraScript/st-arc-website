@@ -1,10 +1,16 @@
-/* ============================================================
-   ST ARC — Main Stylesheet
-   Fonts: Cormorant Garamond (display) + Montserrat (body)
-   Loaded via index.html <link> tag
-   ============================================================ */
-
 /* ── DESIGN TOKENS ────────────────────────────────────────── */
+/* 
+   HISTORICAL FONT VALUES (for easy reset):
+   - body: 16px
+   - .nav-links a: 12px
+   - .nav-cta: 12px
+   - .btn-primary: 12px
+   - .btn-outline: 12px
+   - .nav-logo: 16px
+   - .hero-sub: 14px
+   - .ap-hero-sub: 13px
+   - General paragraphs/text: 14px
+*/
 :root {
   --gold: #C9973A;
   --gold-light: #E8C06A;
@@ -87,7 +93,7 @@ html {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   background: var(--dark);
   color: var(--text);
@@ -154,7 +160,7 @@ nav.nav-solid {
 .nav-logo {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: 4px;
   color: var(--white);
   text-decoration: none;
@@ -416,7 +422,7 @@ section {
 }
 
 .hero-sub {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.85;
   color: rgba(232, 228, 220, 0.82);
@@ -646,7 +652,7 @@ section {
 }
 
 .projects-header p {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.85;
   color: rgba(232, 228, 220, 0.68);
@@ -855,7 +861,7 @@ section {
 }
 
 .about-body {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.9;
   color: rgba(232, 228, 220, 0.65);
@@ -930,7 +936,7 @@ section {
 }
 
 .services-intro p {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.9;
   color: rgba(232, 228, 220, 0.65);
@@ -1847,7 +1853,7 @@ footer {
   border: 1px solid rgba(201, 151, 58, 0.15);
   color: var(--text);
   padding: 14px 16px;
-  font-size: 14px;
+  font-size: 16px;
   transition: border-color 0.3s, background 0.3s;
   outline: none;
   border-radius: 0;
@@ -1888,7 +1894,7 @@ footer {
   border: 1px dashed rgba(201, 151, 58, 0.3);
   color: var(--text-muted);
   padding: 14px 16px;
-  font-size: 14px;
+  font-size: 16px;
   transition: border-color 0.3s, background 0.3s, color 0.3s;
   cursor: pointer;
   display: flex !important;
@@ -1975,7 +1981,7 @@ footer {
 }
 
 .cat-sub {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--text-muted);
   margin-top: 12px;
@@ -2612,12 +2618,14 @@ footer {
 
 .ap-hero-sub {
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.8;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  text-transform: none; /* Removed uppercase for better readability */
+  color: rgba(232, 228, 220, 0.7); /* Muted white instead of gold */
+  max-width: 600px;
 }
+
 
 /* Sections */
 .ap-section {
@@ -2755,7 +2763,7 @@ footer {
 }
 
 .ap-text p {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.95;
   color: rgba(232, 228, 220, 0.65);
@@ -2775,7 +2783,7 @@ footer {
 }
 
 .ap-process-lead {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.9;
   color: rgba(232, 228, 220, 0.6);
@@ -2988,7 +2996,7 @@ footer {
 
 .archive-sub {
   margin-top: 12px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--text-muted);
   letter-spacing: 0.3px;
@@ -3145,7 +3153,7 @@ footer {
 
 .album-sub {
   margin-top: 14px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--text-muted);
   letter-spacing: 0.3px;
