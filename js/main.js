@@ -91,7 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        // If we are already on this hash, hashchange won't fire, so force scroll
+        if (window.location.hash === href) {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
         navToggle.classList.remove('active');
         navLinks.classList.remove('active');
         updateNavBg();

@@ -29,22 +29,54 @@
   padding: 0;
 }
 
-/* ── HIDE SCROLLBAR (maintaining functionality) ───────────── */
-/* Firefox */
-* {
-  scrollbar-width: none;
+/* ── SCROLLBAR STYLING ────────────────────────────────────── */
+/* Mobile/Tablet: Hide scrollbar */
+@media (max-width: 1023px) {
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
 }
 
-/* WebKit (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
+/* Desktop: Custom Premium Scrollbar */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+  }
 
-/* IE and Legacy Edge */
-html {
-  -ms-overflow-style: none;
+  ::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gold) !important;
+    border-radius: 10px !important;
+    border: 3px solid transparent !important;
+    background-clip: padding-box !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light) !important;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Firefox */
+  html, body {
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--gold) transparent !important;
+  }
 }
 
 html {
@@ -2499,7 +2531,33 @@ footer {
   max-width: var(--container-max);
   margin: 0 auto;
   position: relative;
+  z-index: 3; /* Content above image layer */
+}
+
+.ap-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1; /* Lowest layer */
+  overflow: hidden;
+}
+
+.ap-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* No filters applied as requested */
+}
+
+.ap-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(9, 10, 15, 0.65) 0%,
+      rgba(9, 10, 15, 0.65) 80%,
+      rgba(9, 10, 15, 1) 100%);
   z-index: 2;
+  pointer-events: none;
 }
 
 .ap-hero-bg {
@@ -2509,6 +2567,8 @@ footer {
   background-position: center;
   filter: brightness(0.65) saturate(1.1);
   transform: scale(1.04);
+  z-index: 2; /* Middle layer with transparency */
+  opacity: 0.5; /* Show video through image */
 }
 
 .ap-hero-bg::after {
@@ -3325,3 +3385,44 @@ footer {
     columns: 1;
   }
 }
+
+/* -- RTL (ARABIC) OVERRIDES ---------------------------------- */
+[dir='rtl'] .hero-stats {
+  right: auto;
+  left: var(--section-padding-x);
+}
+
+[dir='rtl'] .hero-scroll {
+  right: auto;
+  left: var(--section-padding-x);
+}
+
+[dir='rtl'] .hero-eyebrow::before {
+  margin-left: 14px;
+  margin-right: 0;
+}
+
+[dir='rtl'] .section-label::before {
+  order: 2;
+  margin-left: 0;
+  margin-right: 14px;
+}
+
+
+
+[dir='rtl'] .lang-selector {
+  margin-right: 0;
+  margin-left: 32px;
+}
+
+[dir='rtl'] .lang-active::after {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+[dir='rtl'] .cat-back {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 8px;
+}
+

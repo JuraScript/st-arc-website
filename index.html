@@ -784,17 +784,23 @@
   <!-- SERVICES PAGE -->
   <div id="services-page" style="display:none;">
     <div class="ap-hero">
-      <div class="ap-hero-bg" style="background-image:url('images/hero-home-3.jpg')"></div>
+      <!-- Video Background -->
+      <div class="ap-video-bg">
+        <video autoplay muted loop playsinline poster="images/hero-fontana.jpg">
+          <source src="main_hero/hero-usluge.mp4" type="video/mp4">
+        </video>
+        <div class="ap-video-overlay"></div>
+      </div>
       <div class="ap-hero-inner">
         <div class="ap-hero-content">
           <a href="#" class="cat-back" data-i18n="cat_back">&#8592; Natrag</a>
-          <div class="section-label" style="margin-top:32px;">Usluge</div>
-          <h1 class="ap-hero-title">Od ideje do upaljenog <em>svjetla</em></h1>
-          <p class="ap-hero-sub">Ne bavimo se samo prodajom dekoracija. Bavimo se realizacijom ideja — od prvog
+          <div class="section-label" style="margin-top:32px;" data-i18n="nav_services">Usluge</div>
+          <h1 class="ap-hero-title" data-i18n="srvp_hero_title">Od ideje do upaljenog <em>svjetla</em></h1>
+          <p class="ap-hero-sub" data-i18n="srvp_hero_sub1">Ne bavimo se samo prodajom dekoracija. Bavimo se realizacijom ideja — od prvog
             razgovora o tome što želite postići, do trenutka kad se rasvjeta upali i prostor oživi. Svaka usluga koju
             nudimo dio je istog cilja: da vaša vizija postane stvarnost, bez kompromisa u kvaliteti i bez stresa oko
             detalja.</p>
-          <p class="ap-hero-sub" style="margin-top: 10px;">Evo što sve radimo za vas.</p>
+          <p class="ap-hero-sub" style="margin-top: 10px;" data-i18n="srvp_hero_sub2">Evo što sve radimo za vas.</p>
         </div>
       </div>
     </div>
@@ -803,12 +809,12 @@
     <div class="ap-section ap-section--dark">
       <div class="ap-inner ap-cols">
         <div class="ap-text reveal">
-          <div class="section-label">01 &#10022; Usluga</div>
-          <h2 class="ap-section-title">Prodaja i nabava <em>dekoracija</em></h2>
-          <p>U našoj ponudi nalazi se širok izbor LED svjetlosnih dekoracija, lampica, svjetlosnih cijevi, traka i
+          <div class="section-label">01 &#10022; <span data-i18n="ft_srv">Usluga</span></div>
+          <h2 class="ap-section-title" data-i18n="srvp_s1_title">Prodaja i nabava <em>dekoracija</em></h2>
+          <p data-i18n="srvp_s1_p1">U našoj ponudi nalazi se širok izbor LED svjetlosnih dekoracija, lampica, svjetlosnih cijevi, traka i
             gotovih motiva — od klasičnih blagdanskih elemenata do modernih dizajnerskih rješenja. Radimo s provjerenim
             materijalima i komponentama koje izdržavaju vanjske uvjete i dugogodišnju upotrebu.</p>
-          <p>Ako u našem katalogu ne pronađete točno ono što tražite, nabavit ćemo za vas — imamo razgranatu mrežu
+          <p data-i18n="srvp_s1_p2">Ako u našem katalogu ne pronađete točno ono što tražite, nabavit ćemo za vas — imamo razgranatu mrežu
             dobavljača i iskustvo u pronalaženju specifičnih elemenata za zahtjevnije projekte.</p>
         </div>
         <div class="srv-img-wrapper">
@@ -821,12 +827,12 @@
     <div class="ap-section ap-section--darker">
       <div class="ap-inner ap-cols ap-cols--reverse">
         <div class="ap-text reveal">
-          <div class="section-label">02 &#10022; Usluga</div>
-          <h2 class="ap-section-title">Savjetovanje i <em>razrada ideje</em></h2>
-          <p>Najbolji projekti ne počinju katalogom — počinju razgovorom. Prije nego što predložimo bilo kakvo rješenje,
+          <div class="section-label">02 &#10022; <span data-i18n="ft_srv">Usluga</span></div>
+          <h2 class="ap-section-title" data-i18n="srvp_s2_title">Savjetovanje i <em>razrada ideje</em></h2>
+          <p data-i18n="srvp_s2_p1">Najbolji projekti ne počinju katalogom — počinju razgovorom. Prije nego što predložimo bilo kakvo rješenje,
             slušamo. Zanima nas kakav ugođaj želite stvoriti, tko su vaši posjetitelji, kako prostor izgleda danju i
             noću, koje su vam prioritete i koji je proračun.</p>
-          <p>Na temelju toga zajedno razrađujemo koncept — predlažemo motive, raspored, boje i tehnička rješenja, te vam
+          <p data-i18n="srvp_s2_p2">Na temelju toga zajedno razrađujemo koncept — predlažemo motive, raspored, boje i tehnička rješenja, te vam
             pomažemo donijeti odluke koje imaju smisla i estetski i financijski. Naše 30-godišnje iskustvo znači da
             znamo što funkcionira, a što samo dobro zvuči na papiru.</p>
         </div>
@@ -839,15 +845,15 @@
     <!-- Sekcija 3: Vizualizacija (HIGHLIGHT) -->
     <div class="ap-section srv-highlight reveal">
       <div class="ap-inner" style="max-width: 1000px; text-align: center;">
-        <div class="section-label" style="justify-content:center; color: var(--gold);">Ključna usluga</div>
-        <h2 class="ap-section-title" style="margin-bottom: 30px;">Vizualizacija i simulacija <em>prostora</em></h2>
-        <p style="font-size: 16px; margin-bottom: 20px;">Ovo je dio koji mijenja sve. Prije nego što bilo što
+        <div class="section-label" style="justify-content:center; color: var(--gold);" data-i18n="srvp_viz_label">Ključna usluga</div>
+        <h2 class="ap-section-title" style="margin-bottom: 30px;" data-i18n="srvp_viz_title">Vizualizacija i simulacija <em>prostora</em></h2>
+        <p style="font-size: 16px; margin-bottom: 20px;" data-i18n="srvp_viz_p1">Ovo je dio koji mijenja sve. Prije nego što bilo što
           proizvedemo ili postavimo, pokazujemo vam kako će izgledati — na vašem prostoru, u stvarnim uvjetima.</p>
-        <p style="font-size: 16px; margin-bottom: 20px;">Pošaljete nam fotografiju lokacije — pročelje, trg, ulicu,
+        <p style="font-size: 16px; margin-bottom: 20px;" data-i18n="srvp_viz_p2">Pošaljete nam fotografiju lokacije — pročelje, trg, ulicu,
           interijer — i pomoću naprednih AI alata za vizualizaciju transformiramo je u realističan prikaz kako će
           prostor izgledati nakon postavljanja dekoracija. Vidite točno što dobivate prije nego što se donese konačna
           odluka.</p>
-        <p style="font-size: 16px; margin-bottom: 50px;">Ova tehnologija omogućuje nam da zajedno s vama testiramo
+        <p style="font-size: 16px; margin-bottom: 50px;" data-i18n="srvp_viz_p3">Ova tehnologija omogućuje nam da zajedno s vama testiramo
           različite varijante, boje i rasporede — sve prije nego što se krene u proizvodnju ili montažu. Bez
           iznenađenja, bez "zamišljanja", samo jasna slika onoga što vas čeka.</p>
         <div class="srv-viz-container" id="aiVisualizer">
@@ -868,7 +874,7 @@
 
         <!-- Viz Button Below -->
         <div class="viz-btn-wrapper" style="margin-top: 30px; text-align: center;">
-          <button class="viz-btn-main-new" id="vizBtn" aria-label="Vizualiziraj prostor">Visualise</button>
+          <button class="viz-btn-main-new" id="vizBtn" aria-label="Vizualiziraj prostor" data-i18n="srvp_viz_btn">Visualise</button>
         </div>
       </div>
     </div>
@@ -877,12 +883,12 @@
     <div class="ap-section ap-section--darker">
       <div class="ap-inner ap-cols">
         <div class="ap-text reveal">
-          <div class="section-label">03 &#10022; Usluga</div>
-          <h2 class="ap-section-title">Proizvodnja <em>po mjeri</em></h2>
-          <p>Sve što vidite u našem katalogu — i mnogo toga što nije u njemu — izrađujemo u vlastitoj radionici u
+          <div class="section-label">03 &#10022; <span data-i18n="ft_srv">Usluga</span></div>
+          <h2 class="ap-section-title" data-i18n="srvp_s4_title">Proizvodnja <em>po mjeri</em></h2>
+          <p data-i18n="srvp_s4_p1">Sve što vidite u našem katalogu — i mnogo toga što nije u njemu — izrađujemo u vlastitoj radionici u
             Solinu. To znači da možemo raditi potpuno prilagođene elemente prema vašim željama, specifikacijama prostora
             ili brendu.</p>
-          <p>Logotipi, unikatni motivi, netipične dimenzije, posebni oblici, kombinacije boja — sve je moguće. I zato
+          <p data-i18n="srvp_s4_p2">Logotipi, unikatni motivi, netipične dimenzije, posebni oblici, kombinacije boja — sve je moguće. I zato
             što kontroliramo cijeli proces od skice do gotovog proizvoda, možemo garantirati kvalitetu i držati rokove.
           </p>
         </div>
@@ -896,12 +902,12 @@
     <div class="ap-section ap-section--dark">
       <div class="ap-inner ap-cols ap-cols--reverse">
         <div class="ap-text reveal">
-          <div class="section-label">04 &#10022; Usluga</div>
-          <h2 class="ap-section-title">Montaža i tehnička <em>podrška</em></h2>
-          <p>Dekoracija je dobra onoliko koliko je dobro postavljena. Naš tim dolazi na vašu lokaciju, obavlja
+          <div class="section-label">04 &#10022; <span data-i18n="ft_srv">Usluga</span></div>
+          <h2 class="ap-section-title" data-i18n="srvp_s5_title">Montaža i tehnička <em>podrška</em></h2>
+          <p data-i18n="srvp_s5_p1">Dekoracija je dobra onoliko koliko je dobro postavljena. Naš tim dolazi na vašu lokaciju, obavlja
             profesionalnu montažu i pobrinut će se da sve radi besprijekorno — od napajanja i kabliranja do sigurnosnog
             pričvršćivanja na visini.</p>
-          <p>Tijekom cijele sezone dostupni smo za tehničku podršku. Ako nešto treba provjeriti, popraviti ili
+          <p data-i18n="srvp_s5_p2">Tijekom cijele sezone dostupni smo za tehničku podršku. Ako nešto treba provjeriti, popraviti ili
             zamijeniti, dolazimo brzo i rješavamo na licu mjesta. Vi se bavite svojim poslom, a mi se brinemo da sve
             svijetli kako treba.</p>
         </div>
@@ -915,12 +921,12 @@
     <div class="ap-section ap-section--darker">
       <div class="ap-inner ap-cols">
         <div class="ap-text reveal">
-          <div class="section-label">05 &#10022; Usluga</div>
-          <h2 class="ap-section-title">Najam <em>dekoracija</em></h2>
-          <p>Ne želite investirati u kupnju? Nudimo i najam naših dekoracija — idealno rješenje za jednokratne događaje,
+          <div class="section-label">05 &#10022; <span data-i18n="ft_srv">Usluga</span></div>
+          <h2 class="ap-section-title" data-i18n="srvp_s6_title">Najam <em>dekoracija</em></h2>
+          <p data-i18n="srvp_s6_p1">Ne želite investirati u kupnju? Nudimo i najam naših dekoracija — idealno rješenje za jednokratne događaje,
             sezonske potrebe ili klijente koji žele svake godine drugačiji ugođaj bez troškova skladištenja i
             održavanja.</p>
-          <p>Najam uključuje dostavu, montažu, demontažu i povrat, tako da vi ne morate razmišljati ni o čemu osim o
+          <p data-i18n="srvp_s6_p2">Najam uključuje dostavu, montažu, demontažu i povrat, tako da vi ne morate razmišljati ni o čemu osim o
             tome kako će sve izgledati.</p>
         </div>
         <div class="srv-img-wrapper">
@@ -933,12 +939,12 @@
     <div class="ap-section ap-section--dark">
       <div class="ap-inner ap-cols ap-cols--reverse">
         <div class="ap-text reveal">
-          <div class="section-label">06 &#10022; Usluga</div>
-          <h2 class="ap-section-title">Održavanje i <em>skladištenje</em></h2>
-          <p>Za klijente koji koriste iste dekoracije iz godine u godinu, nudimo i uslugu sezonskog održavanja i
+          <div class="section-label">06 &#10022; <span data-i18n="ft_srv">Usluga</span></div>
+          <h2 class="ap-section-title" data-i18n="srvp_s7_title">Održavanje i <em>skladištenje</em></h2>
+          <p data-i18n="srvp_s7_p1">Za klijente koji koriste iste dekoracije iz godine u godinu, nudimo i uslugu sezonskog održavanja i
             skladištenja. Nakon sezone preuzimamo dekoracije, provjeravamo ih, popravljamo eventualna oštećenja i čuvamo
             u primjerenim uvjetima do sljedeće upotrebe.</p>
-          <p>Sljedeće godine sve je spremno — kao novo.</p>
+          <p data-i18n="srvp_s7_p2">Sljedeće godine sve je spremno — kao novo.</p>
         </div>
         <div class="srv-img-wrapper">
           <img src="images/usluge/Radionica%20za%20popravak%20i%20testiranje%20svjetala.png" alt="ST Arc — Održavanje i skladištenje" class="ap-img img-cover">
@@ -950,12 +956,12 @@
     <div class="ap-section"
       style="position: relative; overflow: hidden; background-image: linear-gradient(rgba(22, 24, 32, 0.9), rgba(22, 24, 32, 0.9)), url('images/usluge/st_arc_radiona.png'); background-size: cover; background-position: center; border-top: 1px solid rgba(201, 151, 58, 0.05); border-bottom: 1px solid rgba(201, 151, 58, 0.05);">
       <div class="ap-inner" style="max-width:800px; text-align:center; position: relative; z-index: 2;">
-        <div class="section-label" style="justify-content:center;">Zaključak</div>
-        <h2 class="ap-section-title" style="margin-bottom: 30px;">Jedna adresa <em>za sve</em></h2>
-        <p style="font-size: 16px; margin-bottom: 20px;">Ono što nas razlikuje nije pojedinačna usluga, nego činjenica
+        <div class="section-label" style="justify-content:center;" data-i18n="srvp_end_label">Zaključak</div>
+        <h2 class="ap-section-title" style="margin-bottom: 30px;" data-i18n="srvp_end_title">Jedna adresa <em>za sve</em></h2>
+        <p style="font-size: 16px; margin-bottom: 20px;" data-i18n="srvp_end_p1">Ono što nas razlikuje nije pojedinačna usluga, nego činjenica
           da sve radimo pod jednim krovom. Nema koordinacije između više dobavljača, nema prebacivanja odgovornosti,
           nema "to nije naš dio posla". Od prvog razgovora do zadnje upaljene lampice — sve je na nama.</p>
-        <p style="font-size: 16px;">Vi dobivate jednog sugovornika, jedan tim i jednu odgovornu stranu. Mi dobivamo
+        <p style="font-size: 16px;" data-i18n="srvp_end_p2">Vi dobivate jednog sugovornika, jedan tim i jednu odgovornu stranu. Mi dobivamo
           priliku da napravimo nešto čime ćete ponositi.</p>
       </div>
     </div>
@@ -963,7 +969,7 @@
     <!-- PUNCHLINE -->
     <div class="ap-section srv-punchline reveal" style="padding-top: 80px; padding-bottom: 160px; text-align:center;">
       <h2
-        style="font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 64px); font-weight:300; color:var(--gold); font-style:italic;">
+        style="font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 64px); font-weight:300; color:var(--gold); font-style:italic;" data-i18n="srvp_punchline">
         Sa svjetlom stvaramo iskustva koja se pamte.</h2>
     </div>
 
