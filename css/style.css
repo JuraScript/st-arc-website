@@ -2519,11 +2519,12 @@ footer {
 /* Hero */
 .ap-hero {
   position: relative;
-  height: 85vh;
-  min-height: 600px;
+  height: 70vh;
+  min-height: 500px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
+  padding-top: 80px; /* Space for nav */
 }
 
 .ap-hero-inner {
@@ -2583,7 +2584,7 @@ footer {
 .ap-hero-content {
   position: relative;
   z-index: 2;
-  padding: 0 var(--section-padding-x) 120px;
+  padding: 0 var(--section-padding-x);
   max-width: 900px;
 }
 
