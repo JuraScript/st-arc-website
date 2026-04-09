@@ -6,7 +6,7 @@ $listener.Start()
 Write-Host "Server pokrenut na adresi: http://localhost:$port/" -ForegroundColor Green
 Write-Host "Pritisnite CTRL+C za gašenje web servera." -ForegroundColor Yellow
 
-Start-Process "http://localhost:$port/"
+# Start-Process "http://localhost:$port/" # Removed to avoid multiple tabs opening on every restart
 
 while ($listener.IsListening) {
     try {
@@ -24,26 +24,41 @@ while ($listener.IsListening) {
             $mime = 'application/octet-stream'
             
             switch ($ext) {
-                '.html' { $mime = 'text/html' }
-                '.css'  { $mime = 'text/css' }
-                '.js'   { $mime = 'application/javascript' }
+                '.html' { $mime = 'text/html; charset=utf-8' }
+                '.css'  { $mime = 'text/css; charset=utf-8' }
+                '.js'   { $mime = 'application/javascript; charset=utf-8' }
                 '.pdf'  { $mime = 'application/pdf' }
                 '.png'  { $mime = 'image/png' }
                 '.svg'  { $mime = 'image/svg+xml' }
                 '.jpg'  { $mime = 'image/jpeg' }
+                '.jpeg' { $mime = 'image/jpeg' }
                 '.woff2'{ $mime = 'font/woff2' }
                 '.json' { $mime = 'application/json' }
+                '.mp4'  { $mime = 'video/mp4' }
             }
             
             $response.ContentType = $mime
-            $content = [System.IO.File]::ReadAllBytes($filePath)
-            $response.ContentLength64 = $content.Length
-            $response.OutputStream.Write($content, 0, $content.Length)
+            # Add cache control to speed up subsequent loads
+            $response.AddHeader("Cache-Control", "public, max-age=3600")
+            
+            # Streaming instead of reading all into memory
+            $fileStream = [System.IO.File]::OpenRead($filePath)
+            $response.ContentLength64 = $fileStream.Length
+            
+            $buffer = New-Object byte[] 65536 # 64KB buffer
+            while (($bytesRead = $fileStream.Read($buffer, 0, $buffer.Length)) -gt 0) {
+                $response.OutputStream.Write($buffer, 0, $bytesRead)
+            }
+            $fileStream.Close()
+            $fileStream.Dispose()
         } else {
             $response.StatusCode = 404
+            Write-Host "404 Not Found: $path" -ForegroundColor Red
         }
         $response.Close()
     } catch {
-        # Ignore errors
+        Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Red
+        if ($null -ne $response) { $response.Close() }
     }
 }
+
