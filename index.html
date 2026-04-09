@@ -670,7 +670,10 @@
 
     <!-- Hero -->
     <div class="ap-hero">
-      <div class="ap-hero-bg" style="background-image:url('images/about-hero-new.png')"></div>
+      <!-- Background Layers -->
+      <div class="ap-hero-bg" style="background-image:url('images/split.jpg'); opacity: 1; filter: brightness(0.4) saturate(0.8);"></div>
+      <div class="ap-hero-bg" style="background-image:url('images/about-hero-new.png'); opacity: 0.4; mix-blend-mode: overlay;"></div>
+      <div class="ap-video-overlay" style="background: linear-gradient(to bottom, rgba(9, 10, 15, 0.3) 0%, var(--dark) 100%);"></div>
       <div class="ap-hero-inner">
         <div class="ap-hero-content">
           <a href="#" class="cat-back" data-i18n="cat_back">← Natrag</a>
