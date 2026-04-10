@@ -410,9 +410,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="${album.cover || 'images/placeholder.jpg'}" alt="${album.title}" loading="lazy">
         </div>
         <div class="project-arc-content">
-          <div class="project-arc-count">${album.images.length} Fotografija</div>
-          <h3 class="project-arc-title">${album.title}</h3>
-          <p class="project-arc-sub">${album.subtitle}</p>
+          <div class="project-arc-count">${album.images.length} <span data-i18n="label_photos">Fotografija</span></div>
+          <h3 class="project-arc-title" data-i18n="album_${album.slug}_title">${album.title}</h3>
+          <p class="project-arc-sub" data-i18n="album_${album.slug}_subtitle">${album.subtitle}</p>
         </div>
       `;
       grid.appendChild(card);
@@ -427,8 +427,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const album = PROJECT_ALBUMS.find(a => a.slug === slug);
     if (!album) return;
 
-    document.getElementById('album-title').innerHTML = `<em>${album.title}</em>`;
-    document.getElementById('album-sub').textContent = album.subtitle;
+    const titleEl = document.getElementById('album-title');
+    titleEl.innerHTML = `<em>${album.title}</em>`;
+    titleEl.setAttribute('data-i18n', `album_${album.slug}_title_em`);
+
+    const subEl = document.getElementById('album-sub');
+    subEl.textContent = album.subtitle;
+    subEl.setAttribute('data-i18n', `album_${album.slug}_subtitle`);
 
     const masonry = document.getElementById('album-masonry');
     if (!masonry) return;
