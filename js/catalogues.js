@@ -8,6 +8,7 @@ const CATALOGUES = [
   {
     id: 'kat-01',
     file: 'katalozi/KATALOG-ST-ARC.pdf',
+    thumb: 'images/katalozi/kat-05.jpg',
     titleKey: 'cat1_title',
     descKey: 'cat1_desc',
     year: 'glavni'
@@ -15,6 +16,7 @@ const CATALOGUES = [
   {
     id: 'kat-02',
     file: 'katalozi/ST-ARC_SvjetlosneDekoracije.pdf',
+    thumb: 'images/katalozi/kat-07.jpg',
     titleKey: 'cat2_title',
     descKey: 'cat2_desc',
     year: 'dekoracije'
@@ -22,6 +24,7 @@ const CATALOGUES = [
   {
     id: 'kat-03',
     file: 'katalozi/2019-2020.pdf',
+    thumb: 'images/katalozi/kat-03.jpg',
     titleKey: 'cat3_title',
     descKey: 'cat3_desc',
     year: '2019–20'
@@ -29,6 +32,7 @@ const CATALOGUES = [
   {
     id: 'kat-04',
     file: 'katalozi/2018.pdf',
+    thumb: 'images/katalozi/kat-02.jpg',
     titleKey: 'cat4_title',
     descKey: 'cat4_desc',
     year: '2018–19'
@@ -36,6 +40,7 @@ const CATALOGUES = [
   {
     id: 'kat-05',
     file: 'katalozi/2017.pdf',
+    thumb: 'images/katalozi/kat-01.jpg',
     titleKey: 'cat5_title',
     descKey: 'cat5_desc',
     year: '2017'
@@ -43,6 +48,7 @@ const CATALOGUES = [
   {
     id: 'kat-06',
     file: 'katalozi/katalog-maskare.pdf',
+    thumb: 'images/katalozi/kat-04.jpg',
     titleKey: 'cat6_title',
     descKey: 'cat6_desc',
     year: 'posebno'
@@ -50,6 +56,7 @@ const CATALOGUES = [
   {
     id: 'kat-07',
     file: 'katalozi/posebno-izdanje-2015.pdf',
+    thumb: 'images/katalozi/kat-06.jpg',
     titleKey: 'cat7_title',
     descKey: 'cat7_desc',
     year: '2015'
@@ -57,6 +64,7 @@ const CATALOGUES = [
   {
     id: 'kat-08',
     file: 'katalozi/uskrs-katalog-2026-1.pdf',
+    thumb: 'images/katalozi/kat-08.jpg',
     titleKey: 'cat8_title',
     descKey: 'cat8_desc',
     year: '2026'
@@ -95,10 +103,10 @@ function renderCatalogGrid() {
     card.onclick = () => openPdfModal(cat);
 
     card.innerHTML = `
-      <div class="cat-thumb cat-thumb-loading" data-pdf="${cat.file}">
-        <canvas></canvas>
-        <div class="cat-thumb-fallback">
-          <span class="cat-thumb-num">${String(i + 1).padStart(2, '0')}</span>
+      <div class="cat-thumb">
+        <img src="${cat.thumb}" alt="${_t(cat.titleKey)}" loading="lazy">
+        <div class="cat-thumb-overlay">
+          <span class="cat-thumb-view">Pregledaj</span>
         </div>
       </div>
       <div class="cat-info">
@@ -112,64 +120,14 @@ function renderCatalogGrid() {
   });
 }
 
-/* ── THUMBNAIL RENDERING ─────────────────────────────────────── */
-async function renderThumbnail(canvas, pdfPath) {
-  const thumb = canvas.closest('.cat-thumb');
-  try {
-    const pdf = await pdfjsLib.getDocument(pdfPath).promise;
-    const page = await pdf.getPage(1);
-
-    const containerWidth = thumb.clientWidth;
-    const containerHeight = thumb.clientHeight;
-    const viewport = page.getViewport({ scale: 1 });
-
-    // Scale to fill the container width, maintain aspect
-    const scale = containerWidth / viewport.width;
-    const scaledViewport = page.getViewport({ scale });
-
-    canvas.width = scaledViewport.width;
-    canvas.height = scaledViewport.height;
-
-    const ctx = canvas.getContext('2d');
-    await page.render({ canvasContext: ctx, viewport: scaledViewport }).promise;
-
-    // Remove loading state, hide fallback
-    thumb.classList.remove('cat-thumb-loading');
-    const fallback = thumb.querySelector('.cat-thumb-fallback');
-    if (fallback) fallback.style.display = 'none';
-
-    pdf.destroy();
-  } catch (err) {
-    console.warn('PDF thumbnail failed for:', pdfPath, err);
-    // Show fallback, remove loading pulse
-    thumb.classList.remove('cat-thumb-loading');
-    const fallback = thumb.querySelector('.cat-thumb-fallback');
-    if (fallback) fallback.style.display = 'flex';
-    canvas.style.display = 'none';
-  }
-}
-
-/* ── LAZY LOADING THUMBNAILS ─────────────────────────────────── */
-let thumbObserver = null;
-
 function initThumbObserver() {
-  // Disconnect previous observer if any
-  if (thumbObserver) thumbObserver.disconnect();
-
-  thumbObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.dataset.rendered) {
-        entry.target.dataset.rendered = 'true';
-        const canvas = entry.target.querySelector('canvas');
-        const pdfPath = entry.target.dataset.pdf;
-        renderThumbnail(canvas, pdfPath);
-      }
-    });
-  }, { rootMargin: '100px' });
-
-  document.querySelectorAll('.cat-thumb[data-pdf]')
-    .forEach(el => thumbObserver.observe(el));
+  // Static images use native loading="lazy", so we don't need IntersectionObserver for PDFs anymore
+  // Keeping the function to avoid breaking main.js calls
 }
+
+/* ── THUMBNAIL RENDERING (DEPRECATED) ─────────────────────────── */
+// We now use static JPEGs. Keeping functions for reference but they are not called.
+async function renderThumbnail(canvas, pdfPath) {}
 
 /* ── OPEN PDF MODAL ──────────────────────────────────────────── */
 async function openPdfModal(catalogue) {
