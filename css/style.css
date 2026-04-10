@@ -1545,6 +1545,11 @@ footer {
     padding: 15px 25px;
   }
 
+  .nav-logo {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+
   .nav-cta {
     display: none;
   }
