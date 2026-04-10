@@ -275,23 +275,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function hideAllPages() {
+    const pages = [
+      'main-content',
+      'services-page',
+      'catalogues-page',
+      'about-page',
+      'projects-page',
+      'album-view-page',
+      'contact-page'
+    ];
+    pages.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+  }
+
   function showMain() {
+    hideAllPages();
     document.getElementById('main-content').style.display = '';
-    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
-    document.getElementById('catalogues-page').style.display = 'none';
-    document.getElementById('about-page').style.display = 'none';
-    document.getElementById('projects-page').style.display = 'none';
-    document.getElementById('album-view-page').style.display = 'none';
     window.scrollTo(0, 0);
   }
 
   function showCatalogues() {
-    document.getElementById('main-content').style.display = 'none';
-    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
+    hideAllPages();
     document.getElementById('catalogues-page').style.display = '';
-    document.getElementById('about-page').style.display = 'none';
-    document.getElementById('projects-page').style.display = 'none';
-    document.getElementById('album-view-page').style.display = 'none';
     window.scrollTo(0, 0);
 
     renderCatalogGrid();
@@ -306,12 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showContact() {
-    document.getElementById('main-content').style.display = 'none';
-    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
-    document.getElementById('catalogues-page').style.display = 'none';
-    document.getElementById('about-page').style.display = 'none';
-    document.getElementById('projects-page').style.display = 'none';
-    document.getElementById('album-view-page').style.display = 'none';
+    hideAllPages();
     
     const contactPage = document.getElementById('contact-page');
     if (contactPage) contactPage.style.display = '';
@@ -331,12 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showServices() {
-    document.getElementById('main-content').style.display = 'none';
-    document.getElementById('catalogues-page').style.display = 'none';
-    document.getElementById('about-page').style.display = 'none';
-    document.getElementById('projects-page').style.display = 'none';
-    document.getElementById('contact-page').style.display = 'none';
-    document.getElementById('album-view-page').style.display = 'none';
+    hideAllPages();
     
     const servicesPage = document.getElementById('services-page');
     if (servicesPage) servicesPage.style.display = '';
@@ -352,12 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showAbout() {
-    document.getElementById('main-content').style.display = 'none';
-    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
-    document.getElementById('catalogues-page').style.display = 'none';
+    hideAllPages();
     document.getElementById('about-page').style.display = '';
-    document.getElementById('projects-page').style.display = 'none';
-    document.getElementById('album-view-page').style.display = 'none';
     window.scrollTo(0, 0);
 
     document.querySelectorAll('#about-page .reveal').forEach(el => {
@@ -369,11 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showAllProjects() {
-    document.getElementById('main-content').style.display = 'none';
-    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
-    document.getElementById('catalogues-page').style.display = 'none';
-    document.getElementById('about-page').style.display = 'none';
-    document.getElementById('album-view-page').style.display = 'none';
+    hideAllPages();
     document.getElementById('projects-page').style.display = '';
     window.scrollTo(0, 0);
 
@@ -388,11 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showAlbum(slug) {
-    document.getElementById('main-content').style.display = 'none';
-    const srv = document.getElementById('services-page'); if(srv) srv.style.display = 'none';
-    document.getElementById('catalogues-page').style.display = 'none';
-    document.getElementById('about-page').style.display = 'none';
-    document.getElementById('projects-page').style.display = 'none';
+    hideAllPages();
     document.getElementById('album-view-page').style.display = '';
     window.scrollTo(0, 0);
 
@@ -594,24 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const slug = hash.replace('#/album/', '');
       showAlbum(slug);
     } else {
-      const wasOnSubpage =
-        document.getElementById('catalogues-page').style.display !== 'none' ||
-        document.getElementById('about-page').style.display !== 'none' ||
-        document.getElementById('projects-page').style.display !== 'none' ||
-        document.getElementById('album-view-page').style.display !== 'none' ||
-        document.getElementById('contact-page')?.style.display !== 'none';
-
-      document.getElementById('main-content').style.display = '';
-      if (document.getElementById('services-page')) document.getElementById('services-page').style.display = 'none';
-      document.getElementById('catalogues-page').style.display = 'none';
-      document.getElementById('about-page').style.display = 'none';
-      document.getElementById('projects-page').style.display = 'none';
-      document.getElementById('album-view-page').style.display = 'none';
-      if (document.getElementById('contact-page')) document.getElementById('contact-page').style.display = 'none';
-
-      if (wasOnSubpage) {
-        window.scrollTo(0, 0);
-      }
+      showMain();
     }
   }
 
@@ -621,13 +590,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (location.hash === '#/katalozi' || location.hash === '#/usluge' || location.hash === '#/o-nama' || location.hash === '#/svi-projekti' || location.hash === '#/kontakt' || location.hash.startsWith('#/album/')) {
     handleRoute();
   } else {
-    document.getElementById('main-content').style.display = '';
-    if (document.getElementById('services-page')) document.getElementById('services-page').style.display = 'none';
-    document.getElementById('catalogues-page').style.display = 'none';
-    document.getElementById('about-page').style.display = 'none';
-    document.getElementById('projects-page').style.display = 'none';
-    document.getElementById('album-view-page').style.display = 'none';
-    if (document.getElementById('contact-page')) document.getElementById('contact-page').style.display = 'none';
+    showMain();
   }
 
   // Force scroll to top on every refresh
