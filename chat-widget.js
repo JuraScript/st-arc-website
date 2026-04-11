@@ -72,11 +72,12 @@
 
     .stac-window {
       position: fixed; ${POSITION === 'bottom-right' ? 'right: 24px;' : 'left: 24px;'} bottom: 100px;
-      width: 380px; max-width: calc(100vw - 48px); height: 560px; max-height: calc(100vh - 140px);
+      width: 380px; max-width: calc(100vw - 48px); height: 560px; max-height: calc(100dvh - 140px);
       background: #1A1A1D; border-radius: 16px; border: 1px solid #333;
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       display: none; flex-direction: column; overflow: hidden;
       z-index: 9999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      padding-bottom: max(0px, env(safe-area-inset-bottom));
     }
     .stac-window.open { display: flex; animation: stacFadeIn 0.25s ease; }
     @keyframes stacFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -143,8 +144,9 @@
     @media (max-width: 640px) {
       .stac-window {
         width: calc(100vw - 24px);
-        height: calc(100vh - 140px);
+        height: calc(100dvh - 140px);
         border-radius: 12px;
+        bottom: 80px;
       }
       .stac-fab {
         width: 50px;
@@ -159,6 +161,11 @@
       }
       .stac-msg.user {
         border-bottom-right-radius: 2px;
+      }
+      .stac-fab {
+        bottom: 20px;
+        right: 20px;
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
       }
     }
   `;
