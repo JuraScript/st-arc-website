@@ -73,8 +73,8 @@
     .stac-window {
       position: fixed; ${POSITION === 'bottom-right' ? 'right: 24px;' : 'left: 24px;'} bottom: 100px;
       width: 380px; max-width: calc(100vw - 48px); height: 560px; max-height: calc(100vh - 140px);
-      background: white; border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      background: #1A1A1D; border-radius: 16px; border: 1px solid #333;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       display: none; flex-direction: column; overflow: hidden;
       z-index: 9999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
@@ -96,11 +96,11 @@
 
     .stac-messages {
       flex: 1; overflow-y: auto; padding: 16px;
-      background: #fafafa; display: flex; flex-direction: column; gap: 12px;
+      background: #121212; display: flex; flex-direction: column; gap: 12px;
     }
     .stac-msg { max-width: 85%; padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.5; word-wrap: break-word; }
-    .stac-msg.bot { background: white; color: #1a1a1a; align-self: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border-bottom-left-radius: 4px; }
-    .stac-msg.user { background: ${PRIMARY_COLOR}; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .stac-msg.bot { background: #2C2C2C; color: #F3F4F6; align-self: flex-start; box-shadow: 0 1px 3px rgba(0,0,0,0.3); border-bottom-left-radius: 4px; }
+    .stac-msg.user { background: ${PRIMARY_COLOR}; color: #121212; align-self: flex-end; border-bottom-right-radius: 4px; }
     .stac-msg.thinking { font-style: italic; opacity: 0.7; }
 
     .stac-sources {
@@ -112,15 +112,16 @@
     .stac-source-item .badge { display: inline-block; background: ${PRIMARY_COLOR}22; color: ${PRIMARY_COLOR}; padding: 1px 6px; border-radius: 4px; font-weight: 600; margin-right: 4px; font-size: 10px; }
 
     .stac-input-area {
-      padding: 12px; background: white; border-top: 1px solid #eee;
+      padding: 12px; background: #1A1A1D; border-top: 1px solid #333;
       display: flex; gap: 8px;
     }
     .stac-input {
-      flex: 1; padding: 10px 14px; border: 1px solid #e0e0e0;
+      flex: 1; padding: 10px 14px; border: 1px solid #444;
       border-radius: 22px; font-size: 14px; outline: none;
-      font-family: inherit;
+      font-family: inherit; background: #121212; color: white;
     }
-    .stac-input:focus { border-color: ${PRIMARY_COLOR}; }
+    .stac-input:focus { border-color: ${PRIMARY_COLOR}; outline: none; }
+    .stac-input::placeholder { color: #888; }
     .stac-send-btn {
       background: ${PRIMARY_COLOR}; color: white; border: none;
       width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
@@ -272,14 +273,6 @@
     messagesEl.innerHTML = '';
     addMessage(t('greeting'), 'bot');
     quickActionsEl.innerHTML = '';
-    const contactBtn = document.createElement('button');
-    contactBtn.className = 'stac-quick-btn';
-    contactBtn.textContent = '📧 ' + t('contact');
-    contactBtn.onclick = () => {
-      window.location.hash = '#/kontakt';
-      toggleWindow();
-    };
-    quickActionsEl.appendChild(contactBtn);
   }
 
   function toggleWindow() {
