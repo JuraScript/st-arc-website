@@ -138,6 +138,29 @@
       font-family: inherit;
     }
     .stac-quick-btn:hover { background: ${PRIMARY_COLOR}; color: white; }
+
+    /* Mobile optimizations */
+    @media (max-width: 640px) {
+      .stac-window {
+        width: calc(100vw - 24px);
+        height: calc(100vh - 140px);
+        border-radius: 12px;
+      }
+      .stac-fab {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+      .stac-msg {
+        border-radius: 12px;
+      }
+      .stac-msg.bot {
+        border-bottom-left-radius: 2px;
+      }
+      .stac-msg.user {
+        border-bottom-right-radius: 2px;
+      }
+    }
   `;
 
   const styleEl = document.createElement('style');
@@ -147,7 +170,7 @@
   // === Build DOM ===
   const fab = document.createElement('button');
   fab.className = 'stac-fab';
-  fab.innerHTML = '💬';
+  fab.innerHTML = '✦';
   fab.setAttribute('aria-label', 'Open chat');
   document.body.appendChild(fab);
 
@@ -174,6 +197,15 @@
   const inputEl = win.querySelector('#stac-input');
   const sendBtn = win.querySelector('#stac-send');
   const quickActionsEl = win.querySelector('#stac-quick-actions');
+
+  // Mobile: prevent auto keyboard on focus until user explicitly taps
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    inputEl.readOnly = true;
+    inputEl.addEventListener('click', () => {
+      setTimeout(() => { inputEl.readOnly = false; inputEl.focus(); }, 50);
+    });
+  }
 
   function refreshUIStrings() {
     win.querySelector('[data-i18n="title"]').textContent = t('title');
@@ -280,7 +312,7 @@
     if (isOpen) {
       win.classList.remove('open');
       fab.classList.remove('open');
-      fab.innerHTML = '💬';
+      fab.innerHTML = '✦';
     } else {
       win.classList.add('open');
       fab.classList.add('open');
