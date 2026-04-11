@@ -1,0 +1,29 @@
+SVJETLEĆI KONOPI
+STRING
+Primjer proizvoda po specifikacijama
+U tablici pronađite proizvod po dužini i broju lampica koji najviše odgovara Vašim potrebama.
+Za vanjsku upotrebu
+Duljina Broj Max.
+Duljina Ukupno Broj Snaga po Ukupna Opcija
+Šifra segmenata dioda po duljina Napon
+(m ) dioda segmenata segmentu snaga bljeskanja
+(m) segmentu (m)
+ST-S001 20,28 122 2 10 61 3,5W 7W 80 Ne 230V
+ST-S002 12 100 2 6 50 4W 8W 100 Ne 230V
+ST-S003 12 120 3 4 40 2W 6W Na upit Ne 36V
+ST-S004 12 120 3 4 40 2W 6W Na upit Da 36V
+ST-S005 12,42 123 3 4 41 3,3 10W 96 Ne 230V
+ST-S006 12,42 123 3 4 41 3,3W 10W 96 Da 230V
+ST-S007 12 180 3 4 60 3W 10W 100 Ne 230V
+ST-S008 12 180 3 4 60 3,5W 11W 100 Da 230V
+ST-S009 12 180 3 4 60 3,5W 10W 100 Ne 230V
+ST-S010 12 180 3 4 60 3,5W 10W 100 Da 230V
+ST-S011 12 180 3 4 60 2,5W 7,5W Na upit Ne 24V
+ST-S012 12 180 3 4 60 2,5W 7,5W Na upit Da 24V
+ST-S013 12 240 3 4 80 3,3 10W 96 Ne 230V
+ST-S014 10 100 2 5 50 4W 8W 100 Ne 230V
+ST-S015 10 100 2 5 50 4W 8W 100 Da 230V
+ST-S016 1,2 100 1 1,2 100 7W 7W 39,6 Ne 230V
+ST-S017 1,2 100 1 1,2 100 4,5W 4,5W Na upit Ne 36V
+* Adapter i dodaci nisu uključeni u paketu.
+4

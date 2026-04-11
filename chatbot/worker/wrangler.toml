@@ -1,0 +1,28 @@
+name = "st-arc-chatbot"
+main = "src/index.js"
+compatibility_date = "2025-04-01"
+
+# CORS — allow your site domains
+[vars]
+ALLOWED_ORIGINS = "https://jurascript.github.io,https://st-arc.hr,https://www.st-arc.hr,http://localhost:3000,http://localhost:5173,https://st-arc-admin.profes-xa.workers.dev"
+
+# Vectorize binding (vector database for RAG)
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "st-arc-knowledge"
+
+# R2 binding (file storage for PDFs and images)
+[[r2_buckets]]
+binding = "PDF_BUCKET"
+bucket_name = "st-arc-pdfs"
+
+# KV binding (for settings, Q&A overrides, logs)
+[[kv_namespaces]]
+binding = "SETTINGS"
+id = "8a047272786648ffa8d2bd11b5b19d03"
+# Run: wrangler kv:namespace create SETTINGS
+# Then paste the ID above
+
+# Secrets (set via: wrangler secret put NAME)
+# - GOOGLE_API_KEY
+# - ADMIN_PASSWORD

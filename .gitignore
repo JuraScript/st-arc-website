@@ -1,0 +1,38 @@
+# SECURITY - NIKAD ne pushaj API keyeve, passwords, credentials!
+.env
+.env.local
+*.key
+*.pem
+credentials.json
+gen-lang-client-*.json
+ADMIN_PASSWORD.txt
+
+# Node
+node_modules/
+package-lock.json
+.wrangler/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+
+# Logs
+*.log
+logs/
