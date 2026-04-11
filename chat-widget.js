@@ -197,6 +197,9 @@
       <input class="stac-input" id="stac-input" type="text" />
       <button class="stac-send-btn" id="stac-send">➤</button>
     </div>
+    <div style="text-align: center; padding: 6px 0; border-top: 1px solid #333;">
+      <a id="stac-disable-link" href="#" style="font-size: 10px; color: #888; text-decoration: none; transition: color 0.2s;">disable</a>
+    </div>
   `;
   document.body.appendChild(win);
 
@@ -329,6 +332,45 @@
       setTimeout(() => inputEl.focus(), 100);
     }
   }
+
+  // Disable/Enable chat functionality
+  const disableLink = win.querySelector('#stac-disable-link');
+  let chatDisabled = localStorage.getItem('stac-disabled') === 'true';
+
+  function disableChat() {
+    chatDisabled = true;
+    localStorage.setItem('stac-disabled', 'true');
+    fab.style.display = 'none';
+    win.style.display = 'none';
+  }
+
+  function enableChat() {
+    chatDisabled = false;
+    localStorage.removeItem('stac-disabled');
+    fab.style.display = 'flex';
+    fab.classList.remove('open');
+    win.classList.remove('open');
+  }
+
+  // Check on load
+  if (chatDisabled) {
+    fab.style.display = 'none';
+    win.style.display = 'none';
+  }
+
+  disableLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    disableChat();
+  });
+  disableLink.addEventListener('mouseover', () => {
+    disableLink.style.color = '#aaa';
+  });
+  disableLink.addEventListener('mouseout', () => {
+    disableLink.style.color = '#888';
+  });
+
+  // Allow re-enable with localStorage clear (console: localStorage.removeItem('stac-disabled'); location.reload();)
+  window.stacEnableChat = enableChat;
 
   fab.addEventListener('click', toggleWindow);
   sendBtn.addEventListener('click', () => sendMessage(inputEl.value.trim()));
