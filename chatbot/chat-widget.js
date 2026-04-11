@@ -65,7 +65,7 @@
       box-shadow: 0 6px 24px rgba(0,0,0,0.25);
       display: flex; align-items: center; justify-content: center;
       z-index: 9998; transition: transform 0.2s ease, box-shadow 0.2s ease;
-      font-size: 26px;
+      font-size: 26px; pointer-events: auto;
     }
     .stac-fab:hover { transform: scale(1.08); box-shadow: 0 8px 28px rgba(0,0,0,0.35); }
     .stac-fab.open { transform: rotate(90deg); }
@@ -77,7 +77,7 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       display: none; flex-direction: column; overflow: hidden;
       z-index: 9999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      padding-bottom: max(0px, env(safe-area-inset-bottom));
+      padding-bottom: max(0px, env(safe-area-inset-bottom)); pointer-events: auto;
     }
     .stac-window.open { display: flex; animation: stacFadeIn 0.25s ease; }
     @keyframes stacFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -119,7 +119,7 @@
     .stac-input {
       flex: 1; padding: 10px 14px; border: 1px solid #444;
       border-radius: 22px; font-size: 14px; outline: none;
-      font-family: inherit; background: #121212; color: white;
+      font-family: inherit; background: #121212; color: white; pointer-events: auto;
     }
     .stac-input:focus { border-color: ${PRIMARY_COLOR}; outline: none; }
     .stac-input::placeholder { color: #888; }
@@ -127,7 +127,7 @@
       background: ${PRIMARY_COLOR}; color: white; border: none;
       width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      font-size: 16px; flex-shrink: 0;
+      font-size: 16px; flex-shrink: 0; pointer-events: auto;
     }
     .stac-send-btn:hover { background: #b8956a; }
     .stac-send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -136,7 +136,7 @@
     .stac-quick-btn {
       background: white; border: 1px solid ${PRIMARY_COLOR}; color: ${PRIMARY_COLOR};
       padding: 6px 12px; border-radius: 16px; font-size: 12px; cursor: pointer;
-      font-family: inherit;
+      font-family: inherit; pointer-events: auto;
     }
     .stac-quick-btn:hover { background: ${PRIMARY_COLOR}; color: white; }
 
