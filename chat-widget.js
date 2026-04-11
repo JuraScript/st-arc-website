@@ -337,34 +337,30 @@
   const disableLink = win.querySelector('#stac-disable-link');
   let chatDisabled = localStorage.getItem('stac-disabled') === 'true';
 
-  function toggleChatVisibility() {
-    chatDisabled = !chatDisabled;
-    if (chatDisabled) {
-      localStorage.setItem('stac-disabled', 'true');
-      win.classList.remove('open');
-      win.style.display = 'none';
-      fab.classList.remove('open');
-      fab.innerHTML = '✦';
-    } else {
-      localStorage.removeItem('stac-disabled');
-      win.style.display = 'flex';
-      fab.classList.add('open');
-      fab.innerHTML = '✕';
-      refreshUIStrings();
-      if (messagesEl.children.length === 0) showGreeting();
-      setTimeout(() => inputEl.focus(), 100);
-    }
+  function disableChat() {
+    chatDisabled = true;
+    localStorage.setItem('stac-disabled', 'true');
+    fab.style.display = 'none';
+    win.style.display = 'none';
+  }
+
+  function enableChat() {
+    chatDisabled = false;
+    localStorage.removeItem('stac-disabled');
+    fab.style.display = 'flex';
+    fab.classList.remove('open');
+    win.classList.remove('open');
   }
 
   // Check on load
   if (chatDisabled) {
+    fab.style.display = 'none';
     win.style.display = 'none';
-    fab.classList.remove('open');
   }
 
   disableLink.addEventListener('click', (e) => {
     e.preventDefault();
-    toggleChatVisibility();
+    disableChat();
   });
   disableLink.addEventListener('mouseover', () => {
     disableLink.style.color = '#aaa';
@@ -372,6 +368,9 @@
   disableLink.addEventListener('mouseout', () => {
     disableLink.style.color = '#888';
   });
+
+  // Allow re-enable with localStorage clear (console: localStorage.removeItem('stac-disabled'); location.reload();)
+  window.stacEnableChat = enableChat;
 
   fab.addEventListener('click', toggleWindow);
   sendBtn.addEventListener('click', () => sendMessage(inputEl.value.trim()));
