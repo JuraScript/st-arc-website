@@ -1,13 +1,15 @@
 """
-PDF Indexer for ST Arc Chatbot
-Reads PDFs from ./pdfs/, extracts text per page, chunks, embeds, and ships to the Worker.
+Document Indexer for ST Arc Chatbot
+Reads PDFs and TXT files from ./pdfs/, extracts text, chunks, embeds, and ships to the Worker.
 
-Filename convention: YYYY-name.pdf (e.g. 2025-uskrs.pdf, 2024-premium.pdf)
+Filename convention:
+- PDFs: YYYY-name.pdf (e.g. 2025-uskrs.pdf, 2024-premium.pdf)
+- TXT: name.txt (e.g. home.txt, o-nama.txt, usluge.txt - web content)
 The year is parsed from the filename and used for recency boosting in search.
 
 Usage:
     python index_pdfs.py --worker-url https://your-worker.workers.dev --admin-password YOUR_PASS
-    python index_pdfs.py --worker-url ... --admin-password ... --only 2025-uskrs.pdf
+    python index_pdfs.py --worker-url ... --admin-password ... --only home.txt
 """
 
 import argparse
@@ -106,6 +108,19 @@ def extract_pages(pdf_path: Path):
     return pages
 
 
+def extract_text_file(txt_path: Path):
+    """Extract text from a .txt file, treating entire file as one 'page'."""
+    pages = []
+    try:
+        with open(txt_path, 'r', encoding='utf-8') as f:
+            text = f.read().strip()
+            if text:
+                pages.append({"page": 1, "text": text})
+    except Exception as e:
+        print(f"   [WARN]  Text file read failed: {e}")
+    return pages
+
+
 def chunk_text(text: str, chunk_size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
     """Split text into overlapping chunks (character-based approximation of tokens)."""
     char_chunk = chunk_size * 4
@@ -142,12 +157,23 @@ def embed_batch(texts):
     return embeddings
 
 
-def index_pdf(pdf_path: Path, worker_url: str, admin_password: str):
-    year, catalog_name, doc_id = parse_filename(pdf_path.name)
-    print(f"\n[PDF] {pdf_path.name}")
-    print(f"   [->] catalog: {catalog_name}, year: {year}")
+def index_document(doc_path: Path, worker_url: str, admin_password: str):
+    year, catalog_name, doc_id = parse_filename(doc_path.name)
+    file_ext = doc_path.suffix.lower()
 
-    pages = extract_pages(pdf_path)
+    if file_ext == ".pdf":
+        print(f"\n[PDF] {doc_path.name}")
+        pages = extract_pages(doc_path)
+        source_type = "pdf"
+    elif file_ext == ".txt":
+        print(f"\n[WEB] {doc_path.name}")
+        pages = extract_text_file(doc_path)
+        source_type = "webpage"
+    else:
+        print(f"\n[SKIP] {doc_path.name} - unsupported format")
+        return
+
+    print(f"   [->] catalog: {catalog_name}, year: {year}")
     print(f"   [->] extracted {len(pages)} pages with text")
 
     if not pages:
@@ -192,10 +218,10 @@ def index_pdf(pdf_path: Path, worker_url: str, admin_password: str):
     payload = {
         "doc_id": doc_id,
         "doc_metadata": {
-            "source_type": "pdf",
+            "source_type": source_type,
             "catalog_name": catalog_name,
             "year": year,
-            "filename": pdf_path.name,
+            "filename": doc_path.name,
         },
         "chunks": embedded,
     }
@@ -226,23 +252,24 @@ def main():
 
     if not PDFS_DIR.exists():
         PDFS_DIR.mkdir()
-        print(f"[DIR] Created {PDFS_DIR} — drop your PDFs here and re-run")
+        print(f"[DIR] Created {PDFS_DIR} — drop your PDFs and TXT files here and re-run")
         sys.exit(0)
 
     genai.configure(api_key=args.google_api_key)
 
-    pdfs = sorted(PDFS_DIR.glob("*.pdf"))
+    # Get both PDF and TXT files
+    documents = sorted(PDFS_DIR.glob("*.pdf")) + sorted(PDFS_DIR.glob("*.txt"))
     if args.only:
-        pdfs = [p for p in pdfs if p.name == args.only]
+        documents = [d for d in documents if d.name == args.only]
 
-    if not pdfs:
-        print("[DIR] No PDFs found in ./pdfs/")
+    if not documents:
+        print("[DIR] No PDFs or TXT files found in ./pdfs/")
         sys.exit(0)
 
-    print(f"[INFO] Indexing {len(pdfs)} PDF(s)...")
-    for pdf in pdfs:
+    print(f"[INFO] Indexing {len(documents)} document(s)...")
+    for doc in documents:
         try:
-            index_pdf(pdf, args.worker_url, args.admin_password)
+            index_document(doc, args.worker_url, args.admin_password)
         except Exception as e:
             print(f"   [ERROR] Failed: {e}")
     print("\n[DONE] Done!")
