@@ -1450,7 +1450,7 @@ const translations = {
     srvp_end_title: "Un Único Interlocutor <em>para Todo</em>",
     srvp_end_p1: "Lo que nos diferencia no es un servicio individual, sino el hecho de que lo hacemos todo bajo el mismo techo. Sin coordinación entre múltiples proveedores, sin traspaso de responsabilidades, sin el \"esa no es nuestra parte del trabajo\". Desde la primera conversación hasta la última lámpara encendida, todo depende de nosotros.",
     srvp_end_p2: "Usted tiene un único interlocutor, un único equipo y una única parte responsable. Nosotros tenemos la oportunidad de crear algo de lo que se sentirá orgulloso.",
-    srvp_punchline: "Con la luz creamos experiencias que se recuerdan."
+    srvp_punchline: "Con la luz creamos experiencias que se recuerdan.",
     about_hero_title: "Nuestra <em>Historia</em>",
     about_hero_sub: "1993 — Split, Croacia",
     about_story_label: "Nuestra Historia",
@@ -1664,7 +1664,7 @@ const translations = {
     srvp_end_title: "Eén adres <em>voor alles</em>",
     srvp_end_p1: "Wat ons onderscheidt is niet één dienst, maar het feit dat we alles onder één dak doen. Geen coördinatie tussen meerdere leveranciers, geen afschuiven van verantwoordelijkheid, geen \"dat is niet ons onderdeel van het werk\". Van het eerste gesprek tot de laatste brandende lamp — alles is voor onze rekening.",
     srvp_end_p2: "U krijgt één aanspreekpunt, één team en één verantwoordelijke partij. Wij krijgen de kans om iets te creëren waar u trots op zult zijn.",
-    srvp_punchline: "Met licht creëren we ervaringen die herinnerd worden."
+    srvp_punchline: "Met licht creëren we ervaringen die herinnerd worden.",
     about_hero_title: "Ons <em>Verhaal</em>",
     about_hero_sub: "1993 — Split, Kroatië",
     about_story_label: "Ons Verhaal",
@@ -1878,7 +1878,7 @@ const translations = {
     srvp_end_title: "Um endereço <em>para tudo</em>",
     srvp_end_p1: "O que nos distingue não é um serviço único, mas o facto de fazermos tudo sob o mesmo teto. Sem coordenação entre múltiplos fornecedores, sem transferência de responsabilidade, sem o \"isso não é a nossa parte do trabalho\". Desde a primeira conversa até à última lâmpada acesa — é tudo connosco.",
     srvp_end_p2: "Terá um contacto único, uma equipa única e uma parte responsável. Nós temos a oportunidade de criar algo de que se orgulhará.",
-    srvp_punchline: "Com luz, criamos experiências que se recordam."
+    srvp_punchline: "Com luz, criamos experiências que se recordam.",
     about_hero_title: "Nossa <em>História</em>",
     about_hero_sub: "1993 — Split, Croácia",
     about_story_label: "Nossa História",
@@ -2159,7 +2159,7 @@ const translations = {
     srvp_end_title: "Один адрес <em>для всего</em>",
     srvp_end_p1: "Что нас отличает, так это не одна услуга, а тот факт, что мы делаем всё под одной крышей. Никакой координации между несколькими поставщиками, никакого перекладывания ответственности, никакого \"это не наша часть работы\". От первого разговора до последней зажженной лампы — всё на нас.",
     srvp_end_p2: "Вы получаете одного контактного лица, одну команду и одну ответственную сторону. Мы получаем возможность создать то, чем вы будете гордиться.",
-    srvp_punchline: "С помощью света мы создаем впечатления, которые запоминаются."
+    srvp_punchline: "С помощью света мы создаем впечатления, которые запоминаются.",
     about_hero_title: "Наша <em>История</em>",
     about_hero_sub: "1993 — Сплит, Хорватия",
   },
@@ -2411,7 +2411,7 @@ const translations = {
     srvp_end_title: "<em>一站式</em>服务",
     srvp_end_p1: "使我们脱颖而出的不是单项服务，而是我们提供的一站式解决方案。无需协调多个供应商，没有责任推诿，也没有“那不是我们的工作范畴”。从第一次谈话到最后一盏灯亮起——一切由我们负责。",
     srvp_end_p2: "您将获得一个联系人、一个团队和一个责任方。我们获得了创造让您自豪的作品的机会。",
-    srvp_punchline: "我们用光创造令人难忘的体验。"
+    srvp_punchline: "我们用光创造令人难忘的体验。",
     about_hero_title: "我们的<em>故事</em>",
     about_hero_sub: "1993 — 斯普利特，克罗地亚",
   },
