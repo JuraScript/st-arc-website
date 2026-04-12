@@ -6,7 +6,7 @@ $listener.Start()
 Write-Host "Server pokrenut na adresi: http://localhost:$port/" -ForegroundColor Green
 Write-Host "Pritisnite CTRL+C za gašenje web servera." -ForegroundColor Yellow
 
-# Start-Process "http://localhost:$port/" # Removed to avoid multiple tabs opening on every restart
+Start-Process "http://localhost:$port/" # Auto-opens browser on start
 
 while ($listener.IsListening) {
     try {

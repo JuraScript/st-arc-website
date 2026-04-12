@@ -7,15 +7,12 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 export async function embed(text, apiKey) {
   try {
     const client = new GoogleGenerativeAI(apiKey);
-    const result = await client.getGenerativeModel({ model: 'gemini-embedding-001' }).embedContent(text);
-    const fullVector = result.embedding.values;
-
-    // Reduce 3072 dims to 1536 by averaging pairs
-    const reduced = [];
-    for (let i = 0; i < fullVector.length; i += 2) {
-      reduced.push((fullVector[i] + (fullVector[i + 1] || 0)) / 2);
-    }
-    return reduced;
+    const model = client.getGenerativeModel({ model: 'gemini-embedding-001' });
+    const result = await model.embedContent({
+      content: { parts: [{ text }] },
+      outputDimensionality: 1536,
+    });
+    return result.embedding.values;
   } catch (err) {
     console.error('[EMBED]', err.message);
     throw err;

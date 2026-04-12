@@ -29,6 +29,14 @@ export default {
         response = await handleAdmin(request, env, url);
       } else if (url.pathname === '/api/ingest' && request.method === 'POST') {
         response = await handleIngest(request, env);
+      } else if (url.pathname === '/api/debug/index' && request.method === 'GET') {
+        // Debug endpoint to check what's indexed
+        const docsRaw = await env.SETTINGS.get('documents_index');
+        const docs = docsRaw ? JSON.parse(docsRaw) : [];
+        response = new Response(
+          JSON.stringify({ indexed_documents: docs }),
+          { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
+        );
       } else if (url.pathname === '/' || url.pathname === '/health') {
         response = new Response(
           JSON.stringify({ status: 'ok', service: 'st-arc-chatbot' }),

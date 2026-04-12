@@ -12,6 +12,14 @@
 import { embed, generateAnswer } from './gemini.js';
 import { LANGUAGE_NAMES, SYSTEM_PROMPT_TEMPLATE } from './prompts.js';
 
+// ─── THRESHOLD CONSTANTS ───
+// Minimum cosine similarity to consider a chunk relevant to the user's question
+const SCORE_THRESHOLD = 0.40;  // Smanjen za debug — trebalo bi vidjeti rezultate
+// Maximum number of chunks to send to Gemini
+const MAX_CONTEXT_CHUNKS = 6;
+// If best score is below this, treat it as "no relevant info" even if some matches exist
+const ABSOLUTE_FLOOR = 0.30;  // Smanjen za debug
+
 export async function handleChat(request, env) {
   const body = await request.json();
   const { message, language = 'hr', sessionId = null } = body;
@@ -41,12 +49,31 @@ export async function handleChat(request, env) {
     returnMetadata: 'all',
   });
 
+  console.log(`[DEBUG] Query: "${message}" | Results found: ${searchResults.matches?.length || 0}`);
+  if (searchResults.matches && searchResults.matches.length > 0) {
+    console.log(`[DEBUG] Top 3 results:`, searchResults.matches.slice(0, 3).map(m => ({
+      score: m.score.toFixed(3),
+      catalog: m.metadata?.catalog_name,
+      code: m.metadata?.product_code,
+      text: m.metadata?.text?.slice(0, 80)
+    })));
+  }
+
   // 4. Rerank with recency boost
   const ranked = rerankWithRecency(searchResults.matches || []);
-  const topMatches = ranked.slice(0, 6);
+
+  // 4a. Filter by relevance threshold to prevent hallucination
+  const relevantMatches = ranked.filter((m) => m.boostedScore >= SCORE_THRESHOLD);
+  const topMatches = relevantMatches.slice(0, MAX_CONTEXT_CHUNKS);
+
+  // 4b. Check if we have any context at all worth using
+  const bestScore = ranked[0]?.boostedScore || 0;
+  const hasRelevantContext = topMatches.length > 0 && bestScore >= ABSOLUTE_FLOOR;
 
   // 5. Build context for the LLM
-  const context = buildContext(topMatches);
+  const context = hasRelevantContext
+    ? buildContext(topMatches)
+    : 'NO_RELEVANT_CONTEXT_FOUND';
 
   // 6. Get system prompt (admin can customize this)
   const customPrompt = await env.SETTINGS.get('system_prompt');
@@ -70,9 +97,10 @@ export async function handleChat(request, env) {
     message,
     answer,
     language,
-    source: 'rag',
+    source: hasRelevantContext ? 'rag' : 'fallback',
     sessionId,
     matches: topMatches.length,
+    bestScore: Number(bestScore.toFixed(3)),
   });
 
   return jsonResponse({
