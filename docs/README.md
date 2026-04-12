@@ -1,6 +1,6 @@
 # ST Arc — Website Redesign
 
-Premium dark landing page za ST Arc d.o.o., Split.
+Premium dark landing page za ST Arc d.o.o., Solin.
 
 ## Struktura projekta
 
@@ -50,6 +50,17 @@ Učitavaju se s Google Fonts u `<head>` od `index.html`:
 | `--text`       | `#E8E4DC`  |
 | `--text-muted` | `#8A8880`  |
 
+## Ikoni i vizualni elementi
+
+- **Hero eyebrow icon** — Lucide PencilRuler (14×14px) ispred "Custom inox instalacije"
+  - Signalizira preciznost i custom dizajn
+  - Nasljeđuje zlatnu boju kroz `currentColor`
+- **Trust strip icons** — Lucide ikone u sažetom prikazu povjerenja
+  - Hammer (28×28px) — "Vlastita proizvodnja"
+  - CE tekst (40px, Cormorant Garamond) — "EU certifikati"
+  - PencilRuler (28×28px) — "Custom izrada A – Z"
+  - Sve ikone su konzistentno poravnane i proporcionalne
+
 ## JavaScript funkcionalnosti
 
 - **Custom cursor** — zlatna točka s lagiranim prstenom (smooth pratnja)
@@ -86,4 +97,4 @@ Učitavaju se s Google Fonts u `<head>` od `index.html`:
 - Email: info@st-arc.hr
 - Tel: +385 21 339 861
 - Tel: +385 98 265 642
-- Adresa: Dubrovačka 49, 21000 Split, Hrvatska
+- Adresa: Solin, Hrvatska

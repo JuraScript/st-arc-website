@@ -398,11 +398,12 @@ section {
 }
 
 .hero-eyebrow::before {
-  content: '';
-  width: 40px;
-  height: 1px;
-  background: var(--gold);
-  display: block;
+  display: none;
+}
+
+.hero-eyebrow-icon {
+  flex-shrink: 0;
+  color: var(--gold);
 }
 
 .hero-title {
@@ -596,10 +597,12 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 16px;
   flex: 1;
   text-align: center;
   padding: 0 24px;
+  min-height: 140px;
 }
 
 .pillar-number {
@@ -612,9 +615,25 @@ section {
 }
 
 .pillar-icon {
-  font-size: 20px;
+  font-size: 28px;
   color: var(--gold);
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-pillar > svg.pillar-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+}
+
+.trust-pillar > span.pillar-icon {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: 0.5px;
 }
 
 .pillar-label {
