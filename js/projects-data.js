@@ -13,7 +13,7 @@ const PROJECT_ALBUMS = [
     "title": "3d-motivi",
     "slug": "3d-motivi",
     "subtitle": "Kolekcija fotografija iz projekta. Uredivo manualno u projects-data.js.",
-    "cover": "Projekti/3d-motivi/IMG_3014-HDR.jpg",
+    "cover": "Projekti/3d-motivi/IMG_3127-HDR.jpg",
     "images": [
       "Projekti/3d-motivi/3D_BOZICNE_KUGLE-ST-920-3D-46-scaled.jpg",
       "Projekti/3d-motivi/IMG_2977.jpg",
@@ -36,7 +36,7 @@ const PROJECT_ALBUMS = [
     "title": "3d-premium",
     "slug": "3d-premium",
     "subtitle": "Kolekcija fotografija iz projekta. Uredivo manualno u projects-data.js.",
-    "cover": "Projekti/3d-premium/IMG_3314-HDR.jpg",
+    "cover": "Projekti/3d-premium/DSC8091-scaled.jpg",
     "images": [
       "Projekti/3d-premium/20201217-A7B03570-scaled.jpg",
       "Projekti/3d-premium/20201217-A7B03584-scaled.jpg",
@@ -143,7 +143,7 @@ const PROJECT_ALBUMS = [
     "title": "uskrsne-dekoracije",
     "slug": "uskrsne-dekoracije",
     "subtitle": "Kolekcija fotografija iz projekta. Uredivo manualno u projects-data.js.",
-    "cover": "Projekti/uskrsne-dekoracije/Uskrs_01-1.jpg",
+    "cover": "Projekti/uskrsne-dekoracije/Uskrs_05-1-scaled-e1773259367280-2048x1339.jpg",
     "images": [
       "Projekti/uskrsne-dekoracije/Uskrs_01-1.jpg",
       "Projekti/uskrsne-dekoracije/Uskrs_02.jpg",
