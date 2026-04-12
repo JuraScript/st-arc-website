@@ -581,7 +581,7 @@ section {
 /* ── TRUST STRIP ─────────────────────────────────────────── */
 .trust-strip {
   background: var(--dark-2);
-  padding: 80px var(--section-padding-x);
+  padding: 50px var(--section-padding-x);
   border-bottom: 1px solid rgba(201, 151, 58, 0.1);
 }
 
@@ -598,11 +598,11 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 10px;
   flex: 1;
   text-align: center;
-  padding: 0 24px;
-  min-height: 140px;
+  padding: 0 12px;
+  min-height: 95px;
 }
 
 .pillar-number {
@@ -1544,16 +1544,37 @@ footer {
 /* MOBILE (768px max) */
 @media (max-width: 768px) {
   .trust-strip {
-    padding: 56px 24px;
+    padding: 32px 20px;
   }
 
   .trust-strip-inner {
     flex-wrap: wrap;
-    gap: 48px 0;
+    gap: 24px 0;
   }
 
   .trust-pillar {
     flex: 0 0 33.333%;
+    min-height: 70px;
+    gap: 6px;
+    padding: 0 10px;
+  }
+
+  .pillar-icon {
+    font-size: 18px;
+  }
+
+  .trust-pillar > svg.pillar-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .trust-pillar > span.pillar-icon {
+    font-size: 24px;
+  }
+
+  .pillar-label {
+    font-size: 8px;
+    letter-spacing: 1px;
   }
 
   .pillar-sep {
