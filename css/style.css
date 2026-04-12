@@ -1544,18 +1544,18 @@ footer {
 /* MOBILE (768px max) */
 @media (max-width: 768px) {
   .trust-strip {
-    padding: 32px 20px;
+    padding: 40px 20px;
   }
 
   .trust-strip-inner {
     flex-wrap: wrap;
-    gap: 24px 0;
+    gap: 32px 0;
   }
 
   .trust-pillar {
-    flex: 0 0 33.333%;
-    min-height: 70px;
-    gap: 6px;
+    flex: 0 0 50%;
+    min-height: auto;
+    gap: 10px;
     padding: 0 10px;
   }
 
@@ -1564,17 +1564,23 @@ footer {
   }
 
   .trust-pillar > svg.pillar-icon {
-    width: 18px;
-    height: 18px;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 2px;
   }
 
   .trust-pillar > span.pillar-icon {
-    font-size: 24px;
+    font-size: 32px;
+  }
+
+  .pillar-number {
+    font-size: 36px;
   }
 
   .pillar-label {
-    font-size: 8px;
-    letter-spacing: 1px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    max-width: 130px;
   }
 
   .pillar-sep {
