@@ -581,7 +581,7 @@ section {
 /* ── TRUST STRIP ─────────────────────────────────────────── */
 .trust-strip {
   background: var(--dark-2);
-  padding: 50px var(--section-padding-x);
+  padding: 80px var(--section-padding-x);
   border-bottom: 1px solid rgba(201, 151, 58, 0.1);
 }
 
@@ -1544,7 +1544,7 @@ footer {
 /* MOBILE (768px max) */
 @media (max-width: 768px) {
   .trust-strip {
-    padding: 40px 20px;
+    padding: 56px 20px;
   }
 
   .trust-strip-inner {
