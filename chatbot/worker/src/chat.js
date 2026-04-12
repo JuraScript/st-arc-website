@@ -14,11 +14,11 @@ import { LANGUAGE_NAMES, SYSTEM_PROMPT_TEMPLATE } from './prompts.js';
 
 // ─── THRESHOLD CONSTANTS ───
 // Minimum cosine similarity to consider a chunk relevant to the user's question
-const SCORE_THRESHOLD = 0.40;  // Smanjen za debug — trebalo bi vidjeti rezultate
+const SCORE_THRESHOLD = 0.55;
 // Maximum number of chunks to send to Gemini
 const MAX_CONTEXT_CHUNKS = 6;
 // If best score is below this, treat it as "no relevant info" even if some matches exist
-const ABSOLUTE_FLOOR = 0.30;  // Smanjen za debug
+const ABSOLUTE_FLOOR = 0.30;
 
 export async function handleChat(request, env) {
   const body = await request.json();
@@ -48,16 +48,6 @@ export async function handleChat(request, env) {
     topK: 15,
     returnMetadata: 'all',
   });
-
-  console.log(`[DEBUG] Query: "${message}" | Results found: ${searchResults.matches?.length || 0}`);
-  if (searchResults.matches && searchResults.matches.length > 0) {
-    console.log(`[DEBUG] Top 3 results:`, searchResults.matches.slice(0, 3).map(m => ({
-      score: m.score.toFixed(3),
-      catalog: m.metadata?.catalog_name,
-      code: m.metadata?.product_code,
-      text: m.metadata?.text?.slice(0, 80)
-    })));
-  }
 
   // 4. Rerank with recency boost
   const ranked = rerankWithRecency(searchResults.matches || []);
