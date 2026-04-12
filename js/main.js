@@ -303,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo(0, 0);
 
     renderCatalogGrid();
-    initThumbObserver();
 
     document.querySelectorAll('#catalogues-page .reveal').forEach(el => {
       el.classList.remove('visible');

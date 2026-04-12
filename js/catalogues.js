@@ -120,15 +120,6 @@ function renderCatalogGrid() {
   });
 }
 
-function initThumbObserver() {
-  // Static images use native loading="lazy", so we don't need IntersectionObserver for PDFs anymore
-  // Keeping the function to avoid breaking main.js calls
-}
-
-/* ── THUMBNAIL RENDERING (DEPRECATED) ─────────────────────────── */
-// We now use static JPEGs. Keeping functions for reference but they are not called.
-async function renderThumbnail(canvas, pdfPath) {}
-
 /* ── OPEN PDF MODAL ──────────────────────────────────────────── */
 async function openPdfModal(catalogue) {
   const modal = document.getElementById('pdf-modal');

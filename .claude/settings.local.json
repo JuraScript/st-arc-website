@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed 's/class=\"//g')",
+      "Bash(sed 's/\"//g')",
+      "Read(//tmp/**)",
+      "Bash(grep -v \"^$\")"
+    ]
+  }
+}
